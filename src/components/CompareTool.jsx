@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { CITIES, INCLUSION_GROUPS, PACKAGES } from "@/data/packages";
 import PackageEnquiryForm from "./PackageEnquiryForm";
+import RowIcon from "./icons/CompareRowIcons";
 
 const inr = (n) => `₹${Math.round(n).toLocaleString("en-IN")}`;
 
@@ -153,15 +154,23 @@ function RowGroup({ group }) {
   return (
     <>
       <tr className="cp-group">
-        <td colSpan={PACKAGES.length + 1}>{group.name}</td>
+        <td colSpan={PACKAGES.length + 1}>
+          {group.name}
+          {group.note && <span className="cp-group-note">{group.note}</span>}
+        </td>
       </tr>
       {group.rows.map(([key, label, note]) => {
         const differs = new Set(PACKAGES.map((p) => p.values[key])).size > 1;
         return (
           <tr className={differs ? "cp-diff" : ""} key={key}>
             <td className="cp-label">
-              {label}
-              {note && <span className="cp-label-note">{note}</span>}
+              <div className="cp-label-row">
+                <RowIcon rowKey={key} />
+                <div>
+                  {label}
+                  {note && <span className="cp-label-note">{note}</span>}
+                </div>
+              </div>
             </td>
             {PACKAGES.map((p) => (
               <td key={p.id}>

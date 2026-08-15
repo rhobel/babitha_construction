@@ -1237,6 +1237,23 @@ select.control {
 .cp-table--all .cp-label {
   width: 20%;
 }
+.cp-label-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.cp-row-icon {
+  display: flex;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  color: var(--orange-ink);
+}
+.cp-row-icon svg {
+  width: 100%;
+  height: 100%;
+}
 .cp-label-note {
   display: block;
   margin-top: 4px;
@@ -1262,6 +1279,16 @@ select.control {
   color: var(--navy);
   font-weight: 700;
   padding-block: 10px;
+}
+.cp-group-note {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--sans);
+  font-size: 12.5px;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 400;
+  color: var(--slate);
 }
 .cp-diff td {
   box-shadow: inset 4px 0 0 var(--orange);
