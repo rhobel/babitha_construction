@@ -4,13 +4,7 @@
 // Rates and inclusions are placeholders carried over from design.html.
 // Client must supply final rates and inclusions before launch (B-2).
 
-export const CITIES = [
-  { id: "bbsr", name: "Bhubaneswar", multiplier: 1.0 },
-  { id: "ctc", name: "Cuttack", multiplier: 0.98 },
-  { id: "puri", name: "Puri", multiplier: 1.02 },
-  { id: "rkl", name: "Rourkela", multiplier: 0.96 },
-  { id: "smb", name: "Sambalpur", multiplier: 0.95 },
-];
+export const CITIES = [{ id: "blr", name: "Bangalore", multiplier: 1.0 }];
 
 export const HOME_TYPES = [
   { id: "home", label: "Homes" },

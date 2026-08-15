@@ -1,10 +1,11 @@
 import DataDeletionForm from "@/components/DataDeletionForm";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = pageMetadata("/data-deletion-request/", {
   title: "Data Deletion Request",
   description:
     "Request deletion of your personal data held by Babita Construction, in line with Play Store data-safety requirements.",
-};
+});
 
 export default function DataDeletionRequestPage() {
   return (

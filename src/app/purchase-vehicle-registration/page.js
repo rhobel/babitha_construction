@@ -1,10 +1,11 @@
 import VehiclePurchaseForm from "@/components/VehiclePurchaseForm";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = pageMetadata("/purchase-vehicle-registration/", {
   title: "Apply for Vehicle Purchase",
   description:
     "Tell Babita Construction the vehicle type and your budget range — we'll match it against available stock and get back to you.",
-};
+});
 
 export default function PurchaseVehicleRegistrationPage() {
   return (

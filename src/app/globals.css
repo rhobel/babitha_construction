@@ -319,18 +319,10 @@ p {
   gap: 11px;
   margin-right: auto;
 }
-.logo-mark {
-  width: 40px;
-  height: 40px;
+.logo-mark-img {
+  height: 44px;
+  width: auto;
   flex: none;
-  background: var(--orange);
-  display: grid;
-  place-items: center;
-  border-radius: 2px;
-  font-family: var(--mono);
-  font-weight: 700;
-  font-size: 16px;
-  color: var(--navy);
 }
 .logo-text {
   line-height: 1.15;
@@ -653,6 +645,7 @@ p {
   z-index: 5;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
   background: rgba(1, 36, 91, 0.55);
+  -webkit-backdrop-filter: blur(6px); /* iOS Safari < 15.4 needs the prefix */
   backdrop-filter: blur(6px);
 }
 .hero-nav .wrap {

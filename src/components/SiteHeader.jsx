@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { NAV, ADMIN_LOGIN } from "@/data/nav";
 import { COMPANY, SOCIAL_LINKS } from "@/data/company";
@@ -143,9 +144,14 @@ export default function SiteHeader() {
       >
         <div className="wrap">
           <Link className="logo" href="/">
-            <span className="logo-mark" aria-hidden="true">
-              BC
-            </span>
+            <Image
+              className="logo-mark-img"
+              src="/brand/logo.png"
+              alt=""
+              width={200}
+              height={165}
+              priority
+            />
             <span className="logo-text">
               <b>{COMPANY.name}</b>
               <small>{COMPANY.tagline}</small>

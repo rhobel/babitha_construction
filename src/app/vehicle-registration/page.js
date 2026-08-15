@@ -1,10 +1,11 @@
 import VehicleLeaseForm from "@/components/VehicleLeaseForm";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = pageMetadata("/vehicle-registration/", {
   title: "Register for Vehicle Lease",
   description:
     "List your tipper, hyva, trailer or excavator for lease with Babita Construction. Terms from 3 months to 5 years, cash or EMI.",
-};
+});
 
 export default function VehicleRegistrationPage() {
   return (

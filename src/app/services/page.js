@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SERVICES } from "@/data/home";
+import { pageMetadata } from "@/lib/seo";
 
 const DETAIL_HREF = {
   Construction: "/construction/",
@@ -7,11 +8,11 @@ const DETAIL_HREF = {
   Mining: "/mining/",
 };
 
-export const metadata = {
+export const metadata = pageMetadata("/services/", {
   title: "Services",
   description:
     "Construction, transportation and mining — three connected service lines run by one in-house team across Odisha.",
-};
+});
 
 export default function ServicesPage() {
   return (

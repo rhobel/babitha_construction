@@ -1,11 +1,12 @@
 import ProjectCard from "@/components/ProjectCard";
 import { PROJECTS } from "@/data/projects";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = pageMetadata("/projects/", {
   title: "Projects",
   description:
     "Recent construction, mining and transportation projects delivered by Babita Construction across Odisha.",
-};
+});
 
 export default function ProjectsPage() {
   return (

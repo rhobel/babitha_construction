@@ -1,7 +1,11 @@
 import AdminLoginForm from "@/components/AdminLoginForm";
+import { pageMetadata } from "@/lib/seo";
 
 export const metadata = {
-  title: "Admin Login",
+  ...pageMetadata("/login/", {
+    title: "Admin Login",
+    description: "Staff sign-in for Babita Construction.",
+  }),
   robots: { index: false, follow: false },
 };
 

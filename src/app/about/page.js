@@ -1,12 +1,13 @@
 import StatsStrip from "@/components/StatsStrip";
 import { COMPANY } from "@/data/company";
 import { ABOUT_STORY, HOW_WE_WORK, WHERE_WE_WORK } from "@/data/about";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = pageMetadata("/about/", {
   title: "About Us",
   description:
     "Babita Construction has worked across construction, mining and transportation in Odisha for over two decades, with an in-house team, plant and fleet.",
-};
+});
 
 export default function AboutPage() {
   return (

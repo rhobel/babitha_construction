@@ -1,12 +1,13 @@
 import ContactForm from "@/components/ContactForm";
 import LazyMap from "@/components/LazyMap";
 import { COMPANY } from "@/data/company";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = pageMetadata("/contact/", {
   title: "Contact",
   description:
     "Get in touch with Babita Construction — phone, email, office address and a contact form. We reply within one working day.",
-};
+});
 
 export default function ContactPage() {
   return (

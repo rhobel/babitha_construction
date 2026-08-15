@@ -1,0 +1,78 @@
+# Babita Construction — Apache config for the static export.
+# Upload as the FIRST file in public_html/ (dotfiles are often hidden by
+# default in FTP clients — make sure it actually transfers).
+
+# ── Old typo URLs from the previous site (requirements.md §4.1) ──────────
+RewriteEngine On
+
+RewriteRule ^transporatation/?$ /transportation/ [R=301,L]
+RewriteRule ^minning/?$ /mining/ [R=301,L]
+RewriteRule ^index\.view$ / [R=301,L]
+
+# ── Force HTTPS ────────────────────────────────────────────────────────
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# ── Canonical host — defaults to non-www. ─────────────────────────────
+# Open question in requirements.md §11 (#5): confirm with the client which
+# form the domain should take, then keep ONE of the two blocks below (the
+# other should stay commented out).
+
+# Non-www canonical (default):
+RewriteCond %{HTTP_HOST} ^www\.babitaconstruction\.com$ [NC]
+RewriteRule ^ https://babitaconstruction.com%{REQUEST_URI} [R=301,L]
+
+# www canonical (swap in if the client prefers www — comment out the block
+# above and uncomment this one instead):
+# RewriteCond %{HTTP_HOST} ^babitaconstruction\.com$ [NC]
+# RewriteRule ^ https://www.babitaconstruction.com%{REQUEST_URI} [R=301,L]
+
+# ── Custom error pages ─────────────────────────────────────────────────
+ErrorDocument 404 /404.html
+
+# ── Compression ────────────────────────────────────────────────────────
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
+    AddOutputFilterByType DEFLATE application/javascript application/json
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+<IfModule mod_brotli.c>
+    AddOutputFilterByType BROTLI_COMPRESS text/html text/css text/plain text/xml
+    AddOutputFilterByType BROTLI_COMPRESS application/javascript application/json
+    AddOutputFilterByType BROTLI_COMPRESS image/svg+xml
+</IfModule>
+
+# ── Caching ────────────────────────────────────────────────────────────
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # Next.js fingerprints everything under /_next/static/ with a content
+    # hash, so it is safe to cache for a very long time.
+    <FilesMatch "^_next/static/">
+        ExpiresDefault "access plus 1 year"
+    </FilesMatch>
+
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+    ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "^_next/static/">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+
+    # Baseline hardening — cheap to add, no functional cost.
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ── Directory listing off ─────────────────────────────────────────────
+Options -Indexes

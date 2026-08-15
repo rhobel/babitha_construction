@@ -1,12 +1,13 @@
 import CompareTool from "@/components/CompareTool";
 import Accordion from "@/components/Accordion";
 import { COMPARE_FAQ } from "@/data/compareFaq";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = pageMetadata("/compare-packages/", {
   title: "Compare Packages",
   description:
     "Compare Babita Construction's Homes and Luxury Homes packages side by side — inclusions, rates by city, and a live built-up-area estimate.",
-};
+});
 
 const faqJsonLd = {
   "@context": "https://schema.org",
