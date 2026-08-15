@@ -10,6 +10,64 @@ const ICON_PROPS = {
   strokeLinejoin: "round",
 };
 
+const doorIcon = (
+  <svg {...ICON_PROPS}>
+    <rect x="6" y="3" width="12" height="18" rx="1" />
+    <circle cx="15" cy="12" r="1" />
+  </svg>
+);
+
+const houseShelfIcon = (
+  <svg {...ICON_PROPS}>
+    <path d="M4 21V10l8-6 8 6v11" />
+    <line x1="4" y1="21" x2="20" y2="21" />
+    <line x1="9" y1="21" x2="9" y2="14" />
+    <line x1="15" y1="21" x2="15" y2="14" />
+  </svg>
+);
+
+const windowGridIcon = (
+  <svg {...ICON_PROPS}>
+    <rect x="3" y="3" width="18" height="18" rx="1" />
+    <line x1="12" y1="3" x2="12" y2="21" />
+    <line x1="3" y1="12" x2="21" y2="12" />
+  </svg>
+);
+
+const paintBrushIcon = (
+  <svg {...ICON_PROPS}>
+    <path d="M7 3h10l-1 6H8Z" />
+    <path d="M8 9h8l-1 5a3 3 0 0 1-3 3 3 3 0 0 1-3-3Z" />
+    <line x1="12" y1="17" x2="12" y2="21" />
+  </svg>
+);
+
+const tileIcon = (
+  <svg {...ICON_PROPS}>
+    <path d="M12 3 21 8 12 13 3 8Z" />
+    <path d="M3 13 12 18 21 13" />
+  </svg>
+);
+
+const stairsIcon = (
+  <svg {...ICON_PROPS}>
+    <path d="M3 21v-4h4v-4h4v-4h4v-4h4" />
+  </svg>
+);
+
+const lightningIcon = (
+  <svg {...ICON_PROPS}>
+    <path d="M13 2 4 14h6l-1 8 9-12h-6z" />
+  </svg>
+);
+
+const tankIcon = (
+  <svg {...ICON_PROPS}>
+    <ellipse cx="12" cy="6" rx="7" ry="3" />
+    <path d="M5 6v12a7 3 0 0 0 14 0V6" />
+  </svg>
+);
+
 const ICONS = {
   steel: (
     <svg {...ICON_PROPS}>
@@ -88,6 +146,79 @@ const ICONS = {
     <svg {...ICON_PROPS}>
       <circle cx="12" cy="12" r="3" />
       <path d="M12 3v3M12 18v3M4.2 4.9l2.1 2.1M17.7 17l2.1 2.1M3 12h3M18 12h3M4.2 19.1l2.1-2.1M17.7 7l2.1-2.1" />
+    </svg>
+  ),
+
+  bathdado: (
+    <svg {...ICON_PROPS}>
+      <line x1="3" y1="6" x2="21" y2="6" />
+      <rect x="3" y="9" width="18" height="9" />
+      <line x1="9" y1="9" x2="9" y2="18" />
+      <line x1="15" y1="9" x2="15" y2="18" />
+    </svg>
+  ),
+  sanitarycp: (
+    <svg {...ICON_PROPS}>
+      <path d="M5 12h14" />
+      <path d="M6 12v2a6 6 0 0 0 6 6 6 6 0 0 0 6-6v-2" />
+      <path d="M12 12V5" />
+      <circle cx="12" cy="4" r="1" />
+    </svg>
+  ),
+  cpvcpipe: (
+    <svg {...ICON_PROPS}>
+      <path d="M5 4v9a4 4 0 0 0 4 4h10" />
+      <path d="M5 4h4" />
+      <path d="M15 17h4" />
+    </svg>
+  ),
+  bathroomdoors: doorIcon,
+  bathroomaccessories: houseShelfIcon,
+  solarheater: houseShelfIcon,
+
+  maindoor: doorIcon,
+  internaldoors: doorIcon,
+  pujaroomdoor: doorIcon,
+  windows: windowGridIcon,
+  windowgrills: windowGridIcon,
+
+  interiorpaint: paintBrushIcon,
+  exteriorpaint: paintBrushIcon,
+
+  livingdining: tileIcon,
+  roomskitchen: tileIcon,
+  balcony: tileIcon,
+  staircase: stairsIcon,
+  parking: (
+    <svg {...ICON_PROPS}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M10 16V8h3a2.5 2.5 0 0 1 0 5h-3" />
+    </svg>
+  ),
+
+  fireproofwiring: lightningIcon,
+  upswiring: lightningIcon,
+  evcharging: lightningIcon,
+  wiringswitch: (
+    <svg {...ICON_PROPS}>
+      <rect x="6" y="3" width="12" height="18" rx="2" />
+      <line x1="9" y1="9" x2="15" y2="9" />
+    </svg>
+  ),
+  wiringsocket: (
+    <svg {...ICON_PROPS}>
+      <rect x="4" y="4" width="16" height="16" rx="2" />
+      <circle cx="10" cy="12" r="1" />
+      <circle cx="14" cy="12" r="1" />
+    </svg>
+  ),
+
+  oht: tankIcon,
+  sump: tankIcon,
+  staircaserailing: stairsIcon,
+  coppergas: (
+    <svg {...ICON_PROPS}>
+      <path d="M12 3c2 3-1 4-1 6.5A3.5 3.5 0 0 0 14.5 13c1.5 0 2.5-1 2.5-1 .3 2-1 6-5 6s-6-3-6-6.5c0-2 1-3.5 2-5C9 5 10 4 12 3Z" />
     </svg>
   ),
 };

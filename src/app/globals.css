@@ -1270,6 +1270,12 @@ select.control {
   font-weight: 700;
   font-size: 16px;
 }
+.cp-cross {
+  display: inline-block;
+  color: var(--warn);
+  font-weight: 700;
+  font-size: 15px;
+}
 .cp-group td {
   background: var(--light) !important;
   font-family: var(--mono);

@@ -192,5 +192,12 @@ function CellValue({ value }) {
       </span>
     );
   }
+  if (value === false) {
+    return (
+      <span className="cp-cross" aria-label="Not included" title="Not included">
+        ✕
+      </span>
+    );
+  }
   return value || "—";
 }
