@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export default function ServiceDetail({ service }) {
-  const { eyebrow, title, summary, paragraphs, capabilities, fleetTypes, registrationLinks, cta, ctaSecondary } = service;
+  const { eyebrow, title, summary, paragraphs, capabilities, process, cta, ctaSecondary } = service;
 
   return (
     <>
@@ -48,37 +48,23 @@ export default function ServiceDetail({ service }) {
                 </ul>
               </div>
             )}
-            {fleetTypes && (
-              <div className="card">
-                <span className="card-num">Fleet</span>
-                <h3>Vehicle types we run</h3>
-                <ul className="check-list">
-                  {fleetTypes.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
           </div>
         </div>
       </section>
 
-      {registrationLinks && (
-        <section className="section section--dark">
+      {process && (
+        <section className="section section--light">
           <div className="wrap">
-            <span className="eyebrow">Fleet services</span>
+            <span className="eyebrow">How it works</span>
             <h2 className="h-lg" style={{ marginBottom: 36 }}>
-              Three ways to work with our fleet
+              From first call to handover
             </h2>
             <div className="grid grid-3">
-              {registrationLinks.map((link) => (
-                <div className="quote" key={link.href}>
-                  <h3 style={{ marginBottom: 8, fontSize: "1.15rem", color: "#fff" }}>
-                    {link.label}
-                  </h3>
-                  <Link className="btn btn-primary btn-sm" href={link.href}>
-                    Start now
-                  </Link>
+              {process.map((step, i) => (
+                <div className="card" key={step.title}>
+                  <span className="card-num">Step {String(i + 1).padStart(2, "0")}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.body}</p>
                 </div>
               ))}
             </div>
