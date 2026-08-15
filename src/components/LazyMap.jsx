@@ -24,7 +24,7 @@ export default function LazyMap({ address, title }) {
   const src = `https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`;
 
   return (
-    <div className="footer-map-frame" ref={ref}>
+    <div className="map-frame" ref={ref}>
       {inView ? (
         <iframe
           title={title}
@@ -33,7 +33,7 @@ export default function LazyMap({ address, title }) {
           referrerPolicy="no-referrer-when-downgrade"
         />
       ) : (
-        <span className="footer-map-placeholder">Map loads on scroll</span>
+        <span className="map-placeholder">Map loads on scroll</span>
       )}
     </div>
   );
