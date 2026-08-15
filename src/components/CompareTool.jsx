@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { CITIES, HOME_TYPES, INCLUSION_GROUPS, PACKAGES } from "@/data/packages";
+import PackageEnquiryForm from "./PackageEnquiryForm";
 
 const inr = (n) => `₹${Math.round(n).toLocaleString("en-IN")}`;
 
@@ -17,6 +18,7 @@ export default function CompareTool() {
   const [[packageAId, packageBId], setPair] = useState(() => firstTwoIds("home"));
   const [diffOnly, setDiffOnly] = useState(false);
   const [area, setArea] = useState(2000);
+  const [enquiryOpen, setEnquiryOpen] = useState(false);
 
   const typedPackages = useMemo(() => PACKAGES.filter((p) => p.type === type), [type]);
   const cityObj = CITIES.find((c) => c.id === cityId) ?? CITIES[0];
@@ -193,13 +195,28 @@ export default function CompareTool() {
       </div>
 
       <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 26 }}>
-        <Link className="btn btn-primary" href="/contact/">
-          Book a free consultation
-        </Link>
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={() => setEnquiryOpen((o) => !o)}
+        >
+          {enquiryOpen ? "Hide consultation form" : "Book a free consultation"}
+        </button>
         <Link className="btn btn-outline" href="/contact/">
           Ask about customisation
         </Link>
       </div>
+
+      {enquiryOpen && (
+        <div style={{ marginTop: 20 }}>
+          <PackageEnquiryForm
+            packageOptions={[packageA?.name, packageB?.name].filter(Boolean)}
+            defaultCityName={cityObj.name}
+            defaultPackageName={packageA?.name}
+            defaultArea={areaNum}
+          />
+        </div>
+      )}
     </>
   );
 }

@@ -1,3 +1,5 @@
+import { VEHICLE_TYPES } from "./vehicleTypes";
+
 export const SERVICE_DETAILS = {
   construction: {
     slug: "construction",
@@ -28,24 +30,7 @@ export const SERVICE_DETAILS = {
       "Material movement is scheduled against our own fleet, not sourced from a broker on the day it's needed. That's what keeps a haulage schedule holding when a site's timeline is tight.",
       "The same fleet is open to three kinds of registration: lease your vehicle to us, apply to purchase from our stock, or sell a vehicle you no longer want to run.",
     ],
-    fleetTypes: [
-      "Tipper 6 Wheel",
-      "Tata Magic",
-      "Tractor",
-      "Pick Up",
-      "Brick Machine",
-      "Trailer",
-      "Mahindra Bolero",
-      "Hyva 14 Wheel",
-      "Hyva 12 Wheel",
-      "Trailer Truck",
-      "Car",
-      "Excavator",
-      "JCB Backhoe",
-      "16 Wheel",
-      "Hyva 10 Wheel",
-      "Truck",
-    ],
+    fleetTypes: VEHICLE_TYPES,
     registrationLinks: [
       { label: "Register for vehicle lease", href: "/vehicle-registration/" },
       { label: "Apply for vehicle purchase", href: "/purchase-vehicle-registration/" },
