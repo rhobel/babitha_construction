@@ -6,7 +6,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata("/compare-packages/", {
   title: "Compare Packages",
   description:
-    "Compare Babita Construction's Homes and Luxury Homes packages side by side — inclusions, rates by city, and a live built-up-area estimate.",
+    "Compare Babita Construction's Basic, Classic, Premium and Royale packages side by side — inclusions, rates, and a live built-up-area estimate.",
 });
 
 const faqJsonLd = {
@@ -31,8 +31,8 @@ export default function ComparePackagesPage() {
           Compare construction packages
         </h1>
         <p className="lede" style={{ marginBottom: 28 }}>
-          Pick a city and a home type, then set any two packages side by side. Rates include
-          material, labour, project management and warranty.
+          Set any two packages side by side. Rates include material, labour, project management
+          and warranty.
         </p>
 
         <CompareTool />

@@ -1,35 +1,23 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import { CITIES, HOME_TYPES, INCLUSION_GROUPS, PACKAGES } from "@/data/packages";
+import { CITIES, INCLUSION_GROUPS, PACKAGES } from "@/data/packages";
 import PackageEnquiryForm from "./PackageEnquiryForm";
 
 const inr = (n) => `₹${Math.round(n).toLocaleString("en-IN")}`;
 
-function firstTwoIds(type) {
-  const list = PACKAGES.filter((p) => p.type === type);
-  return [list[0]?.id, list[1]?.id ?? list[0]?.id];
-}
-
 export default function CompareTool() {
   const [cityId, setCityId] = useState(CITIES[0].id);
-  const [type, setType] = useState("home");
-  const [[packageAId, packageBId], setPair] = useState(() => firstTwoIds("home"));
+  const [[packageAId, packageBId], setPair] = useState([PACKAGES[0]?.id, PACKAGES[1]?.id]);
   const [diffOnly, setDiffOnly] = useState(false);
   const [area, setArea] = useState(2000);
   const [enquiryOpen, setEnquiryOpen] = useState(false);
 
-  const typedPackages = useMemo(() => PACKAGES.filter((p) => p.type === type), [type]);
   const cityObj = CITIES.find((c) => c.id === cityId) ?? CITIES[0];
   const mult = cityObj.multiplier;
   const packageA = PACKAGES.find((p) => p.id === packageAId);
   const packageB = PACKAGES.find((p) => p.id === packageBId);
-
-  function handleTypeChange(newType) {
-    setType(newType);
-    setPair(firstTwoIds(newType));
-  }
 
   const groupsWithRows = INCLUSION_GROUPS.map((g) => ({
     ...g,
@@ -63,21 +51,6 @@ export default function CompareTool() {
             </select>
           </div>
           <div className="field">
-            <span id="cpTypeLbl">Home type</span>
-            <div className="segmented" role="group" aria-labelledby="cpTypeLbl">
-              {HOME_TYPES.map((t) => (
-                <button
-                  key={t.id}
-                  type="button"
-                  aria-pressed={type === t.id}
-                  onClick={() => handleTypeChange(t.id)}
-                >
-                  {t.label}
-                </button>
-              ))}
-            </div>
-          </div>
-          <div className="field">
             <label htmlFor="cpA">Package A</label>
             <select
               className="control"
@@ -85,7 +58,7 @@ export default function CompareTool() {
               value={packageAId}
               onChange={(e) => setPair([e.target.value, packageBId])}
             >
-              {typedPackages.map((p) => (
+              {PACKAGES.map((p) => (
                 <option key={p.id} value={p.id}>
                   {p.name} — {inr(p.rate)}/sq ft
                 </option>
@@ -100,7 +73,7 @@ export default function CompareTool() {
               value={packageBId}
               onChange={(e) => setPair([packageAId, e.target.value])}
             >
-              {typedPackages.map((p) => (
+              {PACKAGES.map((p) => (
                 <option key={p.id} value={p.id}>
                   {p.name} — {inr(p.rate)}/sq ft
                 </option>

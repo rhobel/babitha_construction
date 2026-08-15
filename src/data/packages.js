@@ -1,15 +1,12 @@
 // Package data model — adding a package or an inclusion row here requires
 // no changes to the comparison engine components (BC-32).
 //
-// Rates and inclusions are placeholders carried over from design.html.
-// Client must supply final rates and inclusions before launch (B-2).
+// Rates and names are real, supplied by the client. Inclusions (every value
+// in PACKAGES[].values below) are still placeholder — scaled sensibly per
+// tier, but not yet confirmed. Client must supply final inclusions before
+// launch (B-2).
 
 export const CITIES = [{ id: "blr", name: "Bangalore", multiplier: 1.0 }];
-
-export const HOME_TYPES = [
-  { id: "home", label: "Homes" },
-  { id: "luxury", label: "Luxury homes" },
-];
 
 export const INCLUSION_GROUPS = [
   {
@@ -90,10 +87,9 @@ export const INCLUSION_GROUPS = [
 
 export const PACKAGES = [
   {
-    id: "essential",
-    type: "home",
-    name: "Essential",
-    rate: 1749,
+    id: "basic",
+    name: "Basic",
+    rate: 1995,
     tag: "Straightforward, well-built, no frills",
     values: {
       arch: "2D floor plan + working drawings",
@@ -134,9 +130,8 @@ export const PACKAGES = [
   },
   {
     id: "classic",
-    type: "home",
     name: "Classic",
-    rate: 1999,
+    rate: 2145,
     tag: "The one most families pick",
     values: {
       arch: "2D plan + working drawings + furniture layout",
@@ -177,9 +172,8 @@ export const PACKAGES = [
   },
   {
     id: "premium",
-    type: "home",
     name: "Premium",
-    rate: 2349,
+    rate: 2495,
     tag: "Better finishes, larger wallets",
     values: {
       arch: "Full drawing set + furniture + electrical layout",
@@ -219,14 +213,13 @@ export const PACKAGES = [
     },
   },
   {
-    id: "signature",
-    type: "luxury",
-    name: "Signature",
-    rate: 2799,
+    id: "royale",
+    name: "Royale",
+    rate: 2750,
     tag: "Architect-led, specification driven",
     values: {
-      arch: "Architect-led design, full set",
-      struct: "Peer-reviewed RCC design",
+      arch: "Full drawing set + furniture + electrical + interior concept",
+      struct: "RCC design, seismic optimised + peer review",
       elev: "Unlimited revisions + 3D walkthrough",
       appr: "End-to-end liaison",
       cement: "53 grade — UltraTech premium",
@@ -237,20 +230,20 @@ export const PACKAGES = [
       kctr: "Imported granite / quartz",
       ksink: "Imported quartz, undermount",
       ktile: "Full height + backsplash",
-      kwallet: "₹280 / sq ft",
-      cp: "₹38,000 per bathroom",
-      san: "₹45,000 per bathroom",
-      btile: "₹165 / sq ft",
+      kwallet: "₹250 / sq ft",
+      cp: "₹32,000 per bathroom",
+      san: "₹40,000 per bathroom",
+      btile: "₹150 / sq ft",
       mdoor: "Designer solid teak, carved",
       idoor: "Solid teak, PU polish",
       win: "Aluminium slim profile, DGU",
       grill: "Concealed / invisible grill",
-      ftile: "₹190 / sq ft",
-      stair: "Imported marble, ₹350 / sq ft",
+      ftile: "₹175 / sq ft",
+      stair: "Imported marble, ₹300 / sq ft",
       ipaint: "Royale / luxury emulsion, 3 coats",
       epaint: "Textured + stone cladding allowance",
       wire: "Havells premium FR-LSH",
-      switch: "₹340 / sq ft",
+      switch: "₹320 / sq ft",
       pipe: "Astral premium, concealed",
       oht: "3,000 L, dual chamber",
       sump: "15,000 L",
@@ -259,49 +252,6 @@ export const PACKAGES = [
       app: "Live tracking + weekly review call",
       warrS: "12 years",
       warrM: "2 years",
-    },
-  },
-  {
-    id: "bespoke",
-    type: "luxury",
-    name: "Bespoke",
-    rate: 3299,
-    tag: "Nothing off the shelf",
-    values: {
-      arch: "Bespoke architecture + interior concept",
-      struct: "Peer-reviewed, custom structural system",
-      elev: "Bespoke facade design + VR walkthrough",
-      appr: "End-to-end liaison + expediting",
-      cement: "53 grade premium, blended as specified",
-      steel: "Fe550D CRS, third-party tested",
-      conc: "M30+, design mix",
-      block: '8" AAC + acoustic insulation',
-      wproof: "Full envelope, 15 yr",
-      kctr: "Imported quartz / Corian",
-      ksink: "Imported, undermount + accessories",
-      ktile: "Designer full height",
-      kwallet: "₹420 / sq ft",
-      cp: "₹60,000 per bathroom",
-      san: "₹75,000 per bathroom",
-      btile: "₹250 / sq ft",
-      mdoor: "Custom joinery, solid hardwood",
-      idoor: "Custom joinery, PU / veneer",
-      win: "Aluminium / uPVC premium, DGU acoustic",
-      grill: "Custom fabricated",
-      ftile: "₹300 / sq ft",
-      stair: "Imported marble + custom railing",
-      ipaint: "Luxury emulsion / textured finishes",
-      epaint: "Custom facade — cladding, louvres",
-      wire: "Premium, home-automation ready",
-      switch: "₹520 / sq ft",
-      pipe: "Premium concealed + hot water loop",
-      oht: "4,000 L, dual chamber",
-      sump: "20,000 L",
-      eng: "Full-time site engineer",
-      qa: "620 stage checks",
-      app: "Live tracking + fortnightly site review",
-      warrS: "15 years",
-      warrM: "3 years",
     },
   },
 ];
