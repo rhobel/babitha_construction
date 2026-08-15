@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+/* ══════════════════════════════════════════════════════════════
+   DESIGN TOKENS
+   Ported from design.html :root — the approved visual direction.
+   Change a value here, it changes everywhere via Tailwind utilities.
+   ══════════════════════════════════════════════════════════════ */
+:root {
+  /* PRIMARY — deep navy. Headers, footer, hero, dark surfaces. */
+  --navy: #01245b;
+  --navy-deep: #011a44; /* topbar, footer base */
+  --navy-soft: #0a3272; /* raised cards on dark */
+
+  /* SECONDARY — signal orange. Accents, CTAs, active states. */
+  --orange: #ff5e14; /* fills, bars, text ON navy only */
+  --orange-dark: #e64f0a; /* hover / pressed */
+  --orange-ink: #c43c08; /* small orange TEXT on light — 5.25:1 */
+  --orange-wash: #fff0e8; /* tint background */
+
+  --slate: #47536b; /* body copy — 7.7:1 on white */
+  --mute: #7d8ca6; /* captions, meta */
+
+  --paper: #ffffff;
+  --light: #f1f4f8; /* alternating section background */
+  --line: #dde3ec;
+
+  --ok: #1e7a46;
+  --warn: #b3261e;
+
+  --background: var(--paper);
+  --foreground: var(--slate);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@theme inline {
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-navy-soft: var(--navy-soft);
+  --color-orange: var(--orange);
+  --color-orange-dark: var(--orange-dark);
+  --color-orange-ink: var(--orange-ink);
+  --color-orange-wash: var(--orange-wash);
+  --color-slate: var(--slate);
+  --color-mute: var(--mute);
+  --color-paper: var(--paper);
+  --color-light: var(--light);
+  --color-line: var(--line);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
