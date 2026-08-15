@@ -5,7 +5,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata("/projects/", {
   title: "Projects",
   description:
-    "Recent construction, mining and transportation projects delivered by Babitha Constructions across Bangalore.",
+    "Recent construction projects delivered by Babitha Constructions across Bangalore.",
 });
 
 export default function ProjectsPage() {

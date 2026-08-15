@@ -25,7 +25,7 @@ export default function OpengraphImage() {
           Babitha Constructions
         </div>
         <div style={{ display: "flex", fontSize: 32, color: "#C6D2E4", marginTop: 20 }}>
-          Construction · Transportation · Mining — Bangalore
+          Construction — Bangalore
         </div>
       </div>
     ),

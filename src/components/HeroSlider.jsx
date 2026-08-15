@@ -25,6 +25,7 @@ export default function HeroSlider() {
   }
 
   function play() {
+    if (HERO_SLIDES.length <= 1) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     clearInterval(timerRef.current);
     timerRef.current = setInterval(() => {
@@ -85,25 +86,27 @@ export default function HeroSlider() {
         </div>
       ))}
 
-      <div className="hero-nav">
-        <div className="wrap" role="tablist" aria-label="Hero slides">
-          {HERO_SLIDES.map((slide, i) => (
-            <button
-              key={slide.badge}
-              className="hero-dot"
-              role="tab"
-              aria-selected={i === cur}
-              onClick={() => {
-                go(i);
-                play();
-              }}
-            >
-              <b>{String(i + 1).padStart(2, "0")}</b>
-              <span>{slide.navLabel ?? slide.badge}</span>
-            </button>
-          ))}
+      {HERO_SLIDES.length > 1 && (
+        <div className="hero-nav">
+          <div className="wrap" role="tablist" aria-label="Hero slides">
+            {HERO_SLIDES.map((slide, i) => (
+              <button
+                key={slide.badge}
+                className="hero-dot"
+                role="tab"
+                aria-selected={i === cur}
+                onClick={() => {
+                  go(i);
+                  play();
+                }}
+              >
+                <b>{String(i + 1).padStart(2, "0")}</b>
+                <span>{slide.navLabel ?? slide.badge}</span>
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 }

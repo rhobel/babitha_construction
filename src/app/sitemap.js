@@ -3,8 +3,6 @@ const ROUTES = [
   "/about/",
   "/services/",
   "/construction/",
-  "/transportation/",
-  "/mining/",
   "/compare-packages/",
   "/projects/",
   "/contact/",

@@ -7,15 +7,15 @@ export default function ServicesGrid() {
       <div className="wrap">
         <span className="eyebrow">What we do</span>
         <h2 className="h-lg" style={{ marginBottom: 12 }}>
-          Three lines of work, one team.
+          Construction, done right.
         </h2>
         <p className="lede" style={{ marginBottom: 36 }}>
-          Each service stands on its own, and they compound when you use more than one.
+          Design through to finishing, on one contract, with fixed rates per square foot.
         </p>
 
         <div className="grid grid-3">
           {SERVICES.map((service) => (
-            <div className="card" key={service.num}>
+            <div className="card" key={service.title}>
               <span className="card-num">{service.num}</span>
               <h3>{service.title}</h3>
               <p>{service.body}</p>

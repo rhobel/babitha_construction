@@ -7,8 +7,6 @@ import { useFormState } from "@/lib/useFormState";
 const SUBJECTS = [
   "Construction enquiry",
   "Package / pricing question",
-  "Vehicle lease or purchase",
-  "Mining contract",
   "Something else",
 ];
 

@@ -6,11 +6,11 @@ import GoogleAnalytics from "@/components/GoogleAnalytics";
 export const metadata = {
   metadataBase: new URL("https://babithaconstruction.com"),
   title: {
-    default: "Babitha Constructions — Construction, Mining & Transportation, Bangalore",
+    default: "Babitha Constructions — Construction, Bangalore",
     template: "%s | Babitha Constructions",
   },
   description:
-    "Commercial and residential construction, mining and transportation services across Bangalore, delivered by an in-house team with our own plant, fleet and site engineers.",
+    "Commercial and residential construction across Bangalore, delivered by an in-house team with our own plant, fleet and site engineers.",
 };
 
 export default function RootLayout({ children }) {

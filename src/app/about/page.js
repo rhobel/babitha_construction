@@ -6,7 +6,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata("/about/", {
   title: "About Us",
   description:
-    "Babitha Constructions has worked across construction, mining and transportation in Bangalore for over two decades, with an in-house team, plant and fleet.",
+    "Babitha Constructions has worked in construction in Bangalore for over two decades, with an in-house team, plant and fleet.",
 });
 
 export default function AboutPage() {
@@ -19,7 +19,7 @@ export default function AboutPage() {
             {COMPANY.yearsInOperation} years of building across Bangalore.
           </h1>
           <p className="lede" style={{ color: "#c6d2e4" }}>
-            Construction, mining and transportation, run by one in-house team with its own plant, fleet and site engineers.
+            Residential and commercial construction, run by one in-house team with its own plant, fleet and site engineers.
           </p>
         </div>
       </section>

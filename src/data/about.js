@@ -2,7 +2,7 @@ export const ABOUT_STORY = {
   eyebrow: "Our story",
   heading: "One team, three connected lines of work.",
   paragraphs: [
-    "Babitha Constructions started as a construction contractor in Bangalore and grew into mining and transportation because the same problem kept showing up: work slows down at the handoff between contractors. A construction site waiting on a hired truck, a mining contract waiting on a hired excavator operator — the delay is rarely the work itself, it's the coordination between separate businesses.",
+    "Babitha Constructions has worked as a construction contractor in Bangalore for over two decades. Owning our own plant and fleet removes the handoff between separate contractors — a construction site waiting on a hired truck or a hired operator is rarely a technical delay, it's a coordination one.",
     "Bringing plant, fleet and crew in-house removed that handoff. Site engineers, drivers and plant operators are on our payroll, not subcontracted, so the person who quotes a job is accountable for running it.",
   ],
 };

@@ -5,8 +5,6 @@ export const NAV = [
     label: "Services",
     children: [
       { label: "Construction", href: "/construction/" },
-      { label: "Transportation", href: "/transportation/" },
-      { label: "Mining", href: "/mining/" },
       { label: "Compare Packages", href: "/compare-packages/", tag: "New" },
     ],
   },

@@ -9,7 +9,7 @@ import { COMPANY } from "@/data/company";
 export const metadata = pageMetadata("/", {
   title: "Home",
   description:
-    "Babitha Constructions builds, moves and mines across Bangalore — construction, transportation and mining under one in-house team.",
+    "Babitha Constructions builds across Bangalore — residential and commercial construction from one in-house team.",
 });
 
 const WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
