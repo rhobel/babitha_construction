@@ -1180,6 +1180,9 @@ select.control {
   border-collapse: collapse;
   min-width: 720px;
 }
+.cp-table--all {
+  min-width: 980px;
+}
 .cp-table th,
 .cp-table td {
   text-align: left;
@@ -1187,6 +1190,10 @@ select.control {
   padding: 13px 16px;
   border-bottom: 1px solid var(--line);
   font-size: 14.5px;
+}
+.cp-table--all th,
+.cp-table--all td {
+  padding: 13px 14px;
 }
 .cp-table thead th {
   position: sticky;
@@ -1226,6 +1233,25 @@ select.control {
   text-transform: uppercase;
   color: var(--mute);
   font-weight: 600;
+}
+.cp-table--all .cp-label {
+  width: 20%;
+}
+.cp-label-note {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--sans);
+  font-size: 12.5px;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 400;
+  color: var(--mute);
+}
+.cp-check {
+  display: inline-block;
+  color: var(--ok);
+  font-weight: 700;
+  font-size: 16px;
 }
 .cp-group td {
   background: var(--light) !important;

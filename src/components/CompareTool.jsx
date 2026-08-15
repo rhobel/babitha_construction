@@ -9,32 +9,29 @@ const inr = (n) => `₹${Math.round(n).toLocaleString("en-IN")}`;
 
 export default function CompareTool() {
   const [cityId, setCityId] = useState(CITIES[0].id);
-  const [[packageAId, packageBId], setPair] = useState([PACKAGES[0]?.id, PACKAGES[1]?.id]);
   const [diffOnly, setDiffOnly] = useState(false);
   const [area, setArea] = useState(2000);
   const [enquiryOpen, setEnquiryOpen] = useState(false);
 
   const cityObj = CITIES.find((c) => c.id === cityId) ?? CITIES[0];
   const mult = cityObj.multiplier;
-  const packageA = PACKAGES.find((p) => p.id === packageAId);
-  const packageB = PACKAGES.find((p) => p.id === packageBId);
 
   const groupsWithRows = INCLUSION_GROUPS.map((g) => ({
     ...g,
-    rows: g.rows.filter(
-      ([key]) => !diffOnly || packageA?.values[key] !== packageB?.values[key],
-    ),
+    rows: g.rows.filter(([key]) => {
+      if (!diffOnly) return true;
+      const values = new Set(PACKAGES.map((p) => p.values[key]));
+      return values.size > 1;
+    }),
   })).filter((g) => g.rows.length > 0);
   const totalShown = groupsWithRows.reduce((sum, g) => sum + g.rows.length, 0);
 
   const areaNum = Math.max(0, Number(area) || 0);
-  const costA = packageA ? packageA.rate * mult * areaNum : 0;
-  const costB = packageB ? packageB.rate * mult * areaNum : 0;
 
   return (
     <>
       <div className="cp-controls">
-        <div className="cp-row">
+        <div className="cp-row" style={{ gridTemplateColumns: "minmax(190px, 280px)" }}>
           <div className="field">
             <label htmlFor="cpCity">City</label>
             <select
@@ -46,36 +43,6 @@ export default function CompareTool() {
               {CITIES.map((c) => (
                 <option key={c.id} value={c.id}>
                   {c.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="field">
-            <label htmlFor="cpA">Package A</label>
-            <select
-              className="control"
-              id="cpA"
-              value={packageAId}
-              onChange={(e) => setPair([e.target.value, packageBId])}
-            >
-              {PACKAGES.map((p) => (
-                <option key={p.id} value={p.id}>
-                  {p.name} — {inr(p.rate)}/sq ft
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="field">
-            <label htmlFor="cpB">Package B</label>
-            <select
-              className="control"
-              id="cpB"
-              value={packageBId}
-              onChange={(e) => setPair([packageAId, e.target.value])}
-            >
-              {PACKAGES.map((p) => (
-                <option key={p.id} value={p.id}>
-                  {p.name} — {inr(p.rate)}/sq ft
                 </option>
               ))}
             </select>
@@ -108,18 +75,12 @@ export default function CompareTool() {
             onChange={(e) => setArea(e.target.value)}
           />
         </div>
-        <div className="cp-quote-out">
-          <small>{packageA?.name ?? "Package A"}</small>
-          <b>{areaNum ? inr(costA) : "—"}</b>
-        </div>
-        <div className="cp-quote-out">
-          <small>{packageB?.name ?? "Package B"}</small>
-          <b>{areaNum ? inr(costB) : "—"}</b>
-        </div>
-        <div className="cp-quote-out">
-          <small>Difference</small>
-          <b>{areaNum ? inr(Math.abs(costB - costA)) : "—"}</b>
-        </div>
+        {PACKAGES.map((p) => (
+          <div className="cp-quote-out" key={p.id}>
+            <small>{p.name}</small>
+            <b>{areaNum ? inr(p.rate * mult * areaNum) : "—"}</b>
+          </div>
+        ))}
         <div
           style={{
             gridColumn: "1/-1",
@@ -134,34 +95,28 @@ export default function CompareTool() {
       </div>
 
       <div className="cp-scroll">
-        <table className="cp-table">
+        <table className="cp-table cp-table--all">
           <thead>
             <tr>
-              <th style={{ width: "26%" }}>Inclusion</th>
-              <th>
-                Package A
-                <em>{packageA?.name}</em>
-                <b>{packageA ? `${inr(packageA.rate * mult)} / sq ft` : ""}</b>
-              </th>
-              <th>
-                Package B
-                <em>{packageB?.name}</em>
-                <b>{packageB ? `${inr(packageB.rate * mult)} / sq ft` : ""}</b>
-              </th>
+              <th style={{ width: "20%" }}>Inclusion</th>
+              {PACKAGES.map((p) => (
+                <th key={p.id}>
+                  <em>{p.name}</em>
+                  <b>{inr(p.rate * mult)} / sq ft</b>
+                </th>
+              ))}
             </tr>
           </thead>
           <tbody>
             {totalShown === 0 ? (
               <tr>
-                <td colSpan={3} className="cp-empty">
-                  These two packages are identical on every line. Turn off &ldquo;show
-                  differences only&rdquo; to see the full list.
+                <td colSpan={PACKAGES.length + 1} className="cp-empty">
+                  All packages are identical on every line. Turn off &ldquo;show differences
+                  only&rdquo; to see the full list.
                 </td>
               </tr>
             ) : (
-              groupsWithRows.map((g) => (
-                <RowGroup key={g.name} group={g} packageA={packageA} packageB={packageB} />
-              ))
+              groupsWithRows.map((g) => <RowGroup key={g.name} group={g} />)
             )}
           </tbody>
         </table>
@@ -183,9 +138,9 @@ export default function CompareTool() {
       {enquiryOpen && (
         <div style={{ marginTop: 20 }}>
           <PackageEnquiryForm
-            packageOptions={[packageA?.name, packageB?.name].filter(Boolean)}
+            packageOptions={PACKAGES.map((p) => p.name)}
             defaultCityName={cityObj.name}
-            defaultPackageName={packageA?.name}
+            defaultPackageName={PACKAGES[0]?.name}
             defaultArea={areaNum}
           />
         </div>
@@ -194,22 +149,39 @@ export default function CompareTool() {
   );
 }
 
-function RowGroup({ group, packageA, packageB }) {
+function RowGroup({ group }) {
   return (
     <>
       <tr className="cp-group">
-        <td colSpan={3}>{group.name}</td>
+        <td colSpan={PACKAGES.length + 1}>{group.name}</td>
       </tr>
-      {group.rows.map(([key, label]) => {
-        const differs = packageA?.values[key] !== packageB?.values[key];
+      {group.rows.map(([key, label, note]) => {
+        const differs = new Set(PACKAGES.map((p) => p.values[key])).size > 1;
         return (
           <tr className={differs ? "cp-diff" : ""} key={key}>
-            <td className="cp-label">{label}</td>
-            <td>{packageA?.values[key] || "—"}</td>
-            <td>{packageB?.values[key] || "—"}</td>
+            <td className="cp-label">
+              {label}
+              {note && <span className="cp-label-note">{note}</span>}
+            </td>
+            {PACKAGES.map((p) => (
+              <td key={p.id}>
+                <CellValue value={p.values[key]} />
+              </td>
+            ))}
           </tr>
         );
       })}
     </>
   );
+}
+
+function CellValue({ value }) {
+  if (value === true) {
+    return (
+      <span className="cp-check" aria-label="Included" title="Included">
+        ✓
+      </span>
+    );
+  }
+  return value || "—";
 }

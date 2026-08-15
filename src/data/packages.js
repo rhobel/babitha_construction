@@ -1,10 +1,14 @@
 // Package data model — adding a package or an inclusion row here requires
 // no changes to the comparison engine components (BC-32).
 //
-// Rates and names are real, supplied by the client. Inclusions (every value
-// in PACKAGES[].values below) are still placeholder — scaled sensibly per
-// tier, but not yet confirmed. Client must supply final inclusions before
-// launch (B-2).
+// Rates and names are real, supplied by the client. The "Structure" group's
+// rows and values are also real (client-supplied). Every other group's
+// inclusions are still placeholder — scaled sensibly per tier, but not yet
+// confirmed. Client must supply final inclusions before launch (B-2).
+//
+// Row values can be a string (shown as-is) or the literal `true`, which
+// renders as a checkmark — used when a spec is standard/included rather
+// than needing its own description (see CompareTool.jsx).
 
 export const CITIES = [{ id: "blr", name: "Bangalore", multiplier: 1.0 }];
 
@@ -21,11 +25,12 @@ export const INCLUSION_GROUPS = [
   {
     name: "Structure",
     rows: [
-      ["cement", "Cement"],
-      ["steel", "Steel"],
-      ["conc", "Concrete"],
-      ["block", "Walling"],
-      ["wproof", "Waterproofing"],
+      ["steel", "Steel", "Fe 550/Fe 550D"],
+      ["cement", "Cement", "43 grade in surface, 53 grade in core"],
+      ["aggregates", "Aggregates", "20mm & 40 mm"],
+      ["blockwork", "Block work", "6 inch (outer), 4 inch (inner) - Solid concrete blocks"],
+      ["rccmix", "RCC Mix", "M20 or M25"],
+      ["ceilingheight", "Ceiling height", "Floor-to-Floor height 10ft"],
     ],
   },
   {
@@ -96,11 +101,12 @@ export const PACKAGES = [
       struct: "RCC design, standard",
       elev: "1 concept view",
       appr: "Document checklist only",
-      cement: "43 grade — JK / Dalmia",
-      steel: "Fe500 — SAIL / Tata Tiscon",
-      conc: "M20, site mixed",
-      block: '6" solid concrete block',
-      wproof: "Bathrooms + terrace, 5 yr",
+      steel: "Sunvik / Prime gold / Kamdhenu / Tirumala",
+      cement: "Zuari / Dalmia / Bharathi",
+      aggregates: true,
+      blockwork: true,
+      rccmix: true,
+      ceilingheight: true,
       kctr: "Granite, 20 mm",
       ksink: "Stainless steel, single bowl",
       ktile: "Dado to 2 ft",
@@ -138,11 +144,12 @@ export const PACKAGES = [
       struct: "RCC design, optimised",
       elev: "2 concept views",
       appr: "Drawing set prepared + liaison",
-      cement: "53 grade — UltraTech / ACC",
-      steel: "Fe550D — Tata Tiscon / JSW",
-      conc: "M25, ready mix",
-      block: '6" AAC block',
-      wproof: "Bathrooms, terrace + sunken, 7 yr",
+      steel: "Indus / Jindal Panther / Vizag",
+      cement: "Zuari / Dalmia / Bharathi",
+      aggregates: true,
+      blockwork: true,
+      rccmix: true,
+      ceilingheight: true,
       kctr: "Granite, 20 mm with skirting",
       ksink: "Stainless steel, double bowl",
       ktile: "Dado to 4 ft",
@@ -180,11 +187,12 @@ export const PACKAGES = [
       struct: "RCC design, seismic optimised",
       elev: "3 views + walkthrough",
       appr: "Full liaison support",
-      cement: "53 grade — UltraTech / Ambuja",
-      steel: "Fe550D — Tata Tiscon",
-      conc: "M25, ready mix",
-      block: '8" AAC block, external',
-      wproof: "Full envelope, 10 yr",
+      steel: "Indus / Jindal Panther / Vizag",
+      cement: "ACC / Ultratech/ Ramco Supercrete",
+      aggregates: true,
+      blockwork: true,
+      rccmix: "ACC or Ultratech",
+      ceilingheight: true,
       kctr: "Granite with breakfast counter",
       ksink: "Quartz composite, double bowl",
       ktile: "Full height dado",
@@ -222,11 +230,12 @@ export const PACKAGES = [
       struct: "RCC design, seismic optimised + peer review",
       elev: "Unlimited revisions + 3D walkthrough",
       appr: "End-to-end liaison",
-      cement: "53 grade — UltraTech premium",
-      steel: "Fe550D CRS — Tata Tiscon",
-      conc: "M30, ready mix",
-      block: '8" AAC, external + internal',
-      wproof: "Full envelope, 12 yr",
+      steel: "Indus / Jindal Panther / Vizag",
+      cement: "ACC / Ultratech / Ramco Supercrete",
+      aggregates: true,
+      blockwork: true,
+      rccmix: "ACC or Ultratech",
+      ceilingheight: true,
       kctr: "Imported granite / quartz",
       ksink: "Imported quartz, undermount",
       ktile: "Full height + backsplash",

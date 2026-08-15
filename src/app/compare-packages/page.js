@@ -31,8 +31,8 @@ export default function ComparePackagesPage() {
           Compare construction packages
         </h1>
         <p className="lede" style={{ marginBottom: 28 }}>
-          Set any two packages side by side. Rates include material, labour, project management
-          and warranty.
+          Compare all four packages side by side. Rates include material, labour, project
+          management and warranty.
         </p>
 
         <CompareTool />
