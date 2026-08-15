@@ -161,8 +161,9 @@ function RowGroup({ group }) {
       </tr>
       {group.rows.map(([key, label, note]) => {
         const differs = new Set(PACKAGES.map((p) => p.values[key])).size > 1;
+        const hasCheck = PACKAGES.some((p) => p.values[key] === true);
         return (
-          <tr className={differs ? "cp-diff" : ""} key={key}>
+          <tr className={differs || hasCheck ? "cp-diff" : ""} key={key}>
             <td className="cp-label">
               <div className="cp-label-row">
                 <RowIcon rowKey={key} />

@@ -12,7 +12,7 @@
   --navy-soft: #0a3272; /* raised cards on dark */
 
   /* SECONDARY — signal orange. Accents, CTAs, active states. */
-  --orange: #ff5e14; /* fills, bars, text ON navy only */
+  --orange: #fc8402; /* fills, bars, text ON navy only */
   --orange-dark: #e64f0a; /* hover / pressed */
   --orange-ink: #c43c08; /* small orange TEXT on light — 5.25:1 */
   --orange-wash: #fff0e8; /* tint background */
