@@ -19,15 +19,6 @@ export const CITIES = [{ id: "blr", name: "Bangalore", multiplier: 1.0 }];
 
 export const INCLUSION_GROUPS = [
   {
-    name: "Design & approvals",
-    rows: [
-      ["arch", "Architectural drawings"],
-      ["struct", "Structural design"],
-      ["elev", "3D elevation"],
-      ["appr", "Approval assistance"],
-    ],
-  },
-  {
     name: "Structure",
     rows: [
       ["steel", "Steel", "Fe 550/Fe 550D"],
@@ -126,10 +117,6 @@ export const PACKAGES = [
     rate: 1995,
     tag: "Straightforward, well-built, no frills",
     values: {
-      arch: "2D floor plan + working drawings",
-      struct: "RCC design, standard",
-      elev: "1 concept view",
-      appr: "Document checklist only",
       steel: "Sunvik / Prime gold / Kamdhenu / Tirumala",
       cement: "Zuari / Dalmia / Bharathi",
       aggregates: true,
@@ -180,10 +167,6 @@ export const PACKAGES = [
     rate: 2145,
     tag: "The one most families pick",
     values: {
-      arch: "2D plan + working drawings + furniture layout",
-      struct: "RCC design, optimised",
-      elev: "2 concept views",
-      appr: "Drawing set prepared + liaison",
       steel: "Indus / Jindal Panther / Vizag",
       cement: "Zuari / Dalmia / Bharathi",
       aggregates: true,
@@ -234,10 +217,6 @@ export const PACKAGES = [
     rate: 2495,
     tag: "Better finishes, larger wallets",
     values: {
-      arch: "Full drawing set + furniture + electrical layout",
-      struct: "RCC design, seismic optimised",
-      elev: "3 views + walkthrough",
-      appr: "Full liaison support",
       steel: "Indus / Jindal Panther / Vizag",
       cement: "ACC / Ultratech/ Ramco Supercrete",
       aggregates: true,
@@ -288,10 +267,6 @@ export const PACKAGES = [
     rate: 2750,
     tag: "Architect-led, specification driven",
     values: {
-      arch: "Full drawing set + furniture + electrical + interior concept",
-      struct: "RCC design, seismic optimised + peer review",
-      elev: "Unlimited revisions + 3D walkthrough",
-      appr: "End-to-end liaison",
       steel: "Indus / Jindal Panther / Vizag",
       cement: "ACC / Ultratech / Ramco Supercrete",
       aggregates: true,

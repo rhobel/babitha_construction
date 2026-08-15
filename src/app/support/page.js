@@ -3,7 +3,7 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata("/support/", {
   title: "Support",
-  description: "Get help with a form, a submission, or an existing enquiry with Babita Construction.",
+  description: "Get help with a form, a submission, or an existing enquiry with Babitha Constructions.",
 });
 
 const CHANNELS = [

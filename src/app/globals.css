@@ -319,27 +319,18 @@ p {
   gap: 11px;
   margin-right: auto;
 }
-.logo-mark-img {
-  height: 44px;
-  width: auto;
+.logo-chip {
+  display: inline-flex;
+  align-items: center;
   flex: none;
+  background: var(--navy);
+  padding: 10px 14px;
+  border-radius: 2px;
 }
-.logo-text {
-  line-height: 1.15;
-}
-.logo-text b {
+.logo-mark-img {
+  height: 32px;
+  width: auto;
   display: block;
-  font-size: 16.5px;
-  font-weight: 800;
-  color: var(--navy);
-  letter-spacing: -0.01em;
-}
-.logo-text small {
-  font-family: var(--mono);
-  font-size: 9.5px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--mute);
 }
 
 .nav {
@@ -1177,7 +1168,12 @@ select.control {
 }
 .cp-table {
   width: 100%;
-  border-collapse: collapse;
+  /* separate (not collapse) — position:sticky on th/td renders with
+     content bleeding through from rows underneath in some browsers when
+     combined with collapsed borders. Only border-bottom is used anywhere
+     in this table, so this has no visible effect on the borders. */
+  border-collapse: separate;
+  border-spacing: 0;
   min-width: 720px;
 }
 .cp-table--all {

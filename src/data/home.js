@@ -8,24 +8,10 @@ export const HERO_SLIDES = [
     title: "Building tomorrow's",
     titleEm: "infrastructure",
     titleEnd: ", today.",
-    body: "Commercial and residential builds across Odisha, delivered by an in-house team with our own plant, fleet and site engineers.",
+    body: "Commercial and residential builds across Bangalore, delivered by an in-house team with our own plant, fleet and site engineers.",
     actions: [
       { label: "See our packages", href: "/compare-packages/", variant: "primary" },
       { label: "Talk to us", href: "/contact/", variant: "outline-light" },
-    ],
-  },
-  {
-    badge: "Fleet",
-    navLabel: "Fleet management",
-    image:
-      "https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=1600&q=70",
-    title: "A fleet you can",
-    titleEm: "lease, buy or sell",
-    titleEnd: " through us.",
-    body: "Tippers, hyvas, excavators and trailers — registered, tracked and maintained. List a vehicle in under ten minutes.",
-    actions: [
-      { label: "Register a vehicle", href: "/vehicle-registration/", variant: "primary" },
-      { label: "Browse options", href: "/purchase-vehicle-registration/", variant: "outline-light" },
     ],
   },
   {
@@ -65,15 +51,15 @@ export const STATS = [
 
 export const ABOUT_TEASER = {
   eyebrow: "About us",
-  heading: `Twenty-five years of building across Odisha.`,
+  heading: `Twenty-five years of building across Bangalore.`,
   paragraphs: [
-    "Babita Construction works across three connected lines — construction, mining and transportation. Owning our own plant and fleet means fewer subcontractors between you and the work, and schedules we can actually hold to.",
-    "From residential builds in Bhubaneswar to contract extraction and bulk haulage, the same engineering team and the same quality checks apply.",
+    "Babitha Constructions works across three connected lines — construction, mining and transportation. Owning our own plant and fleet means fewer subcontractors between you and the work, and schedules we can actually hold to.",
+    "From residential builds to contract extraction and bulk haulage, the same engineering team and the same quality checks apply.",
   ],
   checklist: [
     "Commercial & residential construction",
     "Mining operations, exploration and drilling",
-    "Fleet management and vehicle leasing",
+    "Fleet-backed bulk transportation",
     "Bulk logistics and site-to-site haulage",
   ],
   cards: [
@@ -110,13 +96,13 @@ export const SERVICES = [
   {
     num: "Service 02",
     title: "Transportation",
-    body: "Bulk haulage, site logistics and vehicle leasing. Register your own vehicle with us for lease, or apply to purchase from our fleet.",
+    body: "Bulk haulage and site-to-site logistics, run on a fleet we own and maintain ourselves.",
     checklist: [
       "Tippers, hyvas, trailers, pick-ups",
-      "Lease terms from 3 months to 5 years",
-      "Cash or finance EMI",
+      "Live tracking and weighbridge documentation",
+      "Permit and compliance records per vehicle",
     ],
-    link: { label: "Register a vehicle", href: "/vehicle-registration/" },
+    link: { label: "Talk to us", href: "/contact/" },
   },
   {
     num: "Service 03",

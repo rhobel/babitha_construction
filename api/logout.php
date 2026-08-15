@@ -1,8 +1,8 @@
 <?php
 require __DIR__ . '/lib/bootstrap.php';
 
-babita_require_post();
-babita_start_session();
+babitha_require_post();
+babitha_start_session();
 
 $_SESSION = [];
 if (ini_get('session.use_cookies')) {
@@ -11,4 +11,4 @@ if (ini_get('session.use_cookies')) {
 }
 session_destroy();
 
-babita_success([]);
+babitha_success([]);

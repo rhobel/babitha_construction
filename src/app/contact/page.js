@@ -6,7 +6,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata("/contact/", {
   title: "Contact",
   description:
-    "Get in touch with Babita Construction — phone, email, office address and a contact form. We reply within one working day.",
+    "Get in touch with Babitha Constructions — phone, email, office address and a contact form. We reply within one working day.",
 });
 
 export default function ContactPage() {
@@ -45,7 +45,7 @@ export default function ContactPage() {
               <span className="card-num">Office</span>
               <p style={{ margin: 0 }}>{COMPANY.address}</p>
             </div>
-            <LazyMap address={COMPANY.address} title="Babita Construction office location" />
+            <LazyMap address={COMPANY.address} title="Babitha Constructions office location" />
           </div>
 
           <ContactForm />

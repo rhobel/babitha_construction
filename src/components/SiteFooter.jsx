@@ -1,7 +1,7 @@
 import Link from "next/link";
 import LazyMap from "./LazyMap";
 import { COMPANY } from "@/data/company";
-import { FOOTER_QUICK_LINKS, FOOTER_VEHICLE_LINKS } from "@/data/footer";
+import { FOOTER_QUICK_LINKS } from "@/data/footer";
 
 export default function SiteFooter() {
   return (
@@ -34,16 +34,6 @@ export default function SiteFooter() {
             </ul>
           </div>
           <div>
-            <h4>Vehicle services</h4>
-            <ul>
-              {FOOTER_VEHICLE_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href}>{link.label}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
             <h4>Business hours</h4>
             {COMPANY.hours.map((h, i) => (
               <div
@@ -60,11 +50,11 @@ export default function SiteFooter() {
 
         <div className="footer-map">
           <h4>Find us</h4>
-          <LazyMap address={COMPANY.address} title="Babita Construction office location" />
+          <LazyMap address={COMPANY.address} title="Babitha Constructions office location" />
         </div>
 
         <div className="footer-bottom">
-          <span>© {new Date().getFullYear()} {COMPANY.name} · All rights reserved</span>
+          <span>© {new Date().getFullYear()} {COMPANY.legalName} · All rights reserved</span>
           <Link href="/data-deletion-request/">Delete my data</Link>
         </div>
       </div>

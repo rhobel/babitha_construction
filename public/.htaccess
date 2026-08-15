@@ -1,4 +1,4 @@
-# Babita Construction — Apache config for the static export.
+# Babitha Construction — Apache config for the static export.
 # Upload as the FIRST file in public_html/ (dotfiles are often hidden by
 # default in FTP clients — make sure it actually transfers).
 
@@ -19,13 +19,13 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 # other should stay commented out).
 
 # Non-www canonical (default):
-RewriteCond %{HTTP_HOST} ^www\.babitaconstruction\.com$ [NC]
-RewriteRule ^ https://babitaconstruction.com%{REQUEST_URI} [R=301,L]
+RewriteCond %{HTTP_HOST} ^www\.babithaconstruction\.com$ [NC]
+RewriteRule ^ https://babithaconstruction.com%{REQUEST_URI} [R=301,L]
 
 # www canonical (swap in if the client prefers www — comment out the block
 # above and uncomment this one instead):
-# RewriteCond %{HTTP_HOST} ^babitaconstruction\.com$ [NC]
-# RewriteRule ^ https://www.babitaconstruction.com%{REQUEST_URI} [R=301,L]
+# RewriteCond %{HTTP_HOST} ^babithaconstruction\.com$ [NC]
+# RewriteRule ^ https://www.babithaconstruction.com%{REQUEST_URI} [R=301,L]
 
 # ── Custom error pages ─────────────────────────────────────────────────
 ErrorDocument 404 /404.html

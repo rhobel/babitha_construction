@@ -11,7 +11,7 @@ const DETAIL_HREF = {
 export const metadata = pageMetadata("/services/", {
   title: "Services",
   description:
-    "Construction, transportation and mining — three connected service lines run by one in-house team across Odisha.",
+    "Construction, transportation and mining — three connected service lines run by one in-house team across Bangalore.",
 });
 
 export default function ServicesPage() {

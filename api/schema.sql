@@ -1,4 +1,4 @@
--- Babita Construction — form backend schema.
+-- Babitha Construction — form backend schema.
 -- Import via hPanel > Databases > phpMyAdmin, or `mysql -u ... -p dbname < schema.sql`.
 
 SET NAMES utf8mb4;
@@ -14,77 +14,6 @@ CREATE TABLE IF NOT EXISTS contact_submissions (
     ip VARCHAR(45) NOT NULL,
     created_at DATETIME NOT NULL,
     INDEX idx_created_at (created_at)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-CREATE TABLE IF NOT EXISTS vehicle_lease_submissions (
-    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    reference VARCHAR(32) NOT NULL,
-    owner_name VARCHAR(150) NOT NULL,
-    email VARCHAR(190) NOT NULL,
-    contact VARCHAR(40) NOT NULL,
-    alt_contact VARCHAR(40) NULL,
-    address VARCHAR(255) NOT NULL,
-    vin VARCHAR(100) NOT NULL,
-    model VARCHAR(150) NOT NULL,
-    vehicle_type VARCHAR(60) NOT NULL,
-    listed_by VARCHAR(30) NOT NULL,
-    agreement_period VARCHAR(30) NOT NULL,
-    transaction_method VARCHAR(30) NOT NULL,
-    expected_price DECIMAL(12, 2) NOT NULL,
-    ip VARCHAR(45) NOT NULL,
-    created_at DATETIME NOT NULL,
-    INDEX idx_created_at (created_at)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-CREATE TABLE IF NOT EXISTS vehicle_purchase_submissions (
-    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    reference VARCHAR(32) NOT NULL,
-    full_name VARCHAR(150) NOT NULL,
-    email VARCHAR(190) NOT NULL,
-    contact VARCHAR(40) NOT NULL,
-    alt_contact VARCHAR(40) NULL,
-    address VARCHAR(255) NOT NULL,
-    vehicle_type VARCHAR(60) NOT NULL,
-    range_from DECIMAL(12, 2) NOT NULL,
-    range_to DECIMAL(12, 2) NOT NULL,
-    transaction_method VARCHAR(30) NOT NULL,
-    ip VARCHAR(45) NOT NULL,
-    created_at DATETIME NOT NULL,
-    INDEX idx_created_at (created_at)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-CREATE TABLE IF NOT EXISTS vehicle_default_submissions (
-    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    reference VARCHAR(32) NOT NULL,
-    owner_name VARCHAR(150) NOT NULL,
-    email VARCHAR(190) NOT NULL,
-    contact VARCHAR(40) NOT NULL,
-    address VARCHAR(255) NOT NULL,
-    vin VARCHAR(100) NOT NULL,
-    model VARCHAR(150) NOT NULL,
-    vehicle_type VARCHAR(60) NOT NULL,
-    transaction_method VARCHAR(30) NOT NULL,
-    listed_by VARCHAR(30) NOT NULL,
-    expected_price DECIMAL(12, 2) NOT NULL,
-    ip VARCHAR(45) NOT NULL,
-    created_at DATETIME NOT NULL,
-    INDEX idx_created_at (created_at)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- Shared by both vehicle_lease_submissions and vehicle_default_submissions —
--- same 11 document fields, so one table keyed by submission_type avoids
--- duplicating the schema.
-CREATE TABLE IF NOT EXISTS vehicle_documents (
-    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    submission_type ENUM('lease', 'default') NOT NULL,
-    submission_id INT UNSIGNED NOT NULL,
-    field_key VARCHAR(30) NOT NULL,
-    original_name VARCHAR(255) NOT NULL,
-    stored_name VARCHAR(64) NOT NULL,
-    mime VARCHAR(60) NOT NULL,
-    size_bytes INT UNSIGNED NOT NULL,
-    created_at DATETIME NOT NULL,
-    INDEX idx_submission (submission_type, submission_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS package_enquiries (

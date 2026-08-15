@@ -11,20 +11,6 @@ export const NAV = [
     ],
   },
   { label: "Projects", href: "/projects/" },
-  {
-    label: "Register Vehicle",
-    children: [
-      {
-        label: "Apply for Vehicle Purchase",
-        href: "/purchase-vehicle-registration/",
-      },
-      {
-        label: "Sell a Defaulter Vehicle",
-        href: "/default-vehicle-registration/",
-      },
-      { label: "Register for Vehicle Lease", href: "/vehicle-registration/" },
-    ],
-  },
   { label: "Contact", href: "/contact/" },
 ];
 

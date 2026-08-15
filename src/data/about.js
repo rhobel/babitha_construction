@@ -2,7 +2,7 @@ export const ABOUT_STORY = {
   eyebrow: "Our story",
   heading: "One team, three connected lines of work.",
   paragraphs: [
-    "Babita Construction started as a construction contractor in Odisha and grew into mining and transportation because the same problem kept showing up: work slows down at the handoff between contractors. A construction site waiting on a hired truck, a mining contract waiting on a hired excavator operator — the delay is rarely the work itself, it's the coordination between separate businesses.",
+    "Babitha Constructions started as a construction contractor in Bangalore and grew into mining and transportation because the same problem kept showing up: work slows down at the handoff between contractors. A construction site waiting on a hired truck, a mining contract waiting on a hired excavator operator — the delay is rarely the work itself, it's the coordination between separate businesses.",
     "Bringing plant, fleet and crew in-house removed that handoff. Site engineers, drivers and plant operators are on our payroll, not subcontracted, so the person who quotes a job is accountable for running it.",
   ],
 };
@@ -25,10 +25,4 @@ export const HOW_WE_WORK = [
   },
 ];
 
-export const WHERE_WE_WORK = [
-  "Bhubaneswar",
-  "Cuttack",
-  "Puri",
-  "Rourkela",
-  "Sambalpur",
-];
+export const WHERE_WE_WORK = ["Bangalore"];

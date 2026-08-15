@@ -7,6 +7,6 @@ export default function robots() {
       allow: "/",
       disallow: ["/login/"],
     },
-    sitemap: "https://babitaconstruction.com/sitemap.xml",
+    sitemap: "https://babithaconstruction.com/sitemap.xml",
   };
 }

@@ -4,13 +4,13 @@ import SiteFooter from "@/components/SiteFooter";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 export const metadata = {
-  metadataBase: new URL("https://babitaconstruction.com"),
+  metadataBase: new URL("https://babithaconstruction.com"),
   title: {
-    default: "Babita Construction — Construction, Mining & Transportation, Odisha",
-    template: "%s | Babita Construction",
+    default: "Babitha Constructions — Construction, Mining & Transportation, Bangalore",
+    template: "%s | Babitha Constructions",
   },
   description:
-    "Commercial and residential construction, mining and transportation services across Odisha, delivered by an in-house team with our own plant, fleet and site engineers.",
+    "Commercial and residential construction, mining and transportation services across Bangalore, delivered by an in-house team with our own plant, fleet and site engineers.",
 };
 
 export default function RootLayout({ children }) {

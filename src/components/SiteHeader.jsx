@@ -144,17 +144,15 @@ export default function SiteHeader() {
       >
         <div className="wrap">
           <Link className="logo" href="/">
-            <Image
-              className="logo-mark-img"
-              src="/brand/logo.png"
-              alt=""
-              width={200}
-              height={165}
-              priority
-            />
-            <span className="logo-text">
-              <b>{COMPANY.name}</b>
-              <small>{COMPANY.tagline}</small>
+            <span className="logo-chip">
+              <Image
+                className="logo-mark-img"
+                src="/brand/logo.png"
+                alt={COMPANY.name}
+                width={234}
+                height={66}
+                priority
+              />
             </span>
           </Link>
 

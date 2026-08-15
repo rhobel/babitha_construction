@@ -25,19 +25,14 @@ export const SERVICE_DETAILS = {
     eyebrow: "Service 02",
     title: "Transportation",
     summary:
-      "Bulk haulage and site-to-site logistics, plus a fleet you can lease, buy into or sell through, all run on vehicles we own and maintain ourselves.",
+      "Bulk haulage and site-to-site logistics, run on a fleet we own and maintain ourselves.",
     paragraphs: [
       "Material movement is scheduled against our own fleet, not sourced from a broker on the day it's needed. That's what keeps a haulage schedule holding when a site's timeline is tight.",
-      "The same fleet is open to three kinds of registration: lease your vehicle to us, apply to purchase from our stock, or sell a vehicle you no longer want to run.",
+      "Every vehicle carries its own permit, fitness and pollution documentation, tracked and produced on request rather than chased down when a site needs it.",
     ],
     fleetTypes: VEHICLE_TYPES,
-    registrationLinks: [
-      { label: "Register for vehicle lease", href: "/vehicle-registration/" },
-      { label: "Apply for vehicle purchase", href: "/purchase-vehicle-registration/" },
-      { label: "Sell a defaulter vehicle", href: "/default-vehicle-registration/" },
-    ],
-    cta: { label: "Register a vehicle", href: "/vehicle-registration/" },
-    ctaSecondary: { label: "Talk to us", href: "/contact/" },
+    cta: { label: "Talk to us", href: "/contact/" },
+    ctaSecondary: { label: "See our projects", href: "/projects/" },
   },
   mining: {
     slug: "mining",

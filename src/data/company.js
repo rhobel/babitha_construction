@@ -1,11 +1,11 @@
 export const COMPANY = {
-  name: "Babita Construction",
-  tagline: "Odisha · Since 2000",
-  phones: ["+91 90403 39519", "+91 93488 79126"],
-  topbarEmail: "info@babitaconstruction.com",
-  footerEmail: "babitaconstruction@gmail.com",
-  address:
-    "Naba Laxmi Niwas (ନବ ଲକ୍ଷ୍ମୀ ନିବାସ), 6V45+34V, Saradeipur Rd, Samantarapurpatna, Uttara, Odisha 751002",
+  name: "Babitha Constructions",
+  legalName: "Babitha Constructions Pvt Ltd",
+  tagline: "Bangalore · Since 2000",
+  phones: ["+91 890 4040 606", "+91 9945 378 151"],
+  topbarEmail: "contact@babithaconstruction.com",
+  footerEmail: "contact@babithaconstruction.com",
+  address: "#30, 1st Cross, HMR Layout, Near Pavithra School, Medarahalli Chikkabanavara, Bangalore - 560 090",
   hours: [
     { day: "Monday – Friday", time: "09:00 – 19:00" },
     { day: "Saturday", time: "09:00 – 12:00" },

@@ -4,7 +4,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata("/data-deletion-request/", {
   title: "Data Deletion Request",
   description:
-    "Request deletion of your personal data held by Babita Construction, in line with Play Store data-safety requirements.",
+    "Request deletion of your personal data held by Babitha Constructions, in line with Play Store data-safety requirements.",
 });
 
 export default function DataDeletionRequestPage() {

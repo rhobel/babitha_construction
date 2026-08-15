@@ -11,7 +11,7 @@ export function pageMetadata(path, { title, description }) {
       title,
       description,
       url: path,
-      siteName: "Babita Construction",
+      siteName: "Babitha Constructions",
       type: "website",
     },
     twitter: {

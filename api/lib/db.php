@@ -1,13 +1,13 @@
 <?php
 
-function babita_db(): PDO
+function babitha_db(): PDO
 {
     static $pdo = null;
     if ($pdo !== null) {
         return $pdo;
     }
 
-    $c = babita_config()['db'];
+    $c = babitha_config()['db'];
     $dsn = "mysql:host={$c['host']};dbname={$c['name']};charset={$c['charset']}";
 
     try {
@@ -17,8 +17,8 @@ function babita_db(): PDO
             PDO::ATTR_EMULATE_PREPARES => false,
         ]);
     } catch (PDOException $e) {
-        error_log('babita_db: connection failed: ' . $e->getMessage());
-        babita_error('Server database error.', 500);
+        error_log('babitha_db: connection failed: ' . $e->getMessage());
+        babitha_error('Server database error.', 500);
     }
 
     return $pdo;

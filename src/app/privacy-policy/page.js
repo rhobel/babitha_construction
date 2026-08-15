@@ -3,7 +3,7 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata("/privacy-policy/", {
   title: "Privacy Policy",
-  description: "How Babita Construction collects, uses and protects personal data submitted through this site.",
+  description: "How Babitha Constructions collects, uses and protects personal data submitted through this site.",
 });
 
 export default function PrivacyPolicyPage() {

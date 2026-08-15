@@ -5,7 +5,7 @@
  * that an existing/future PHP admin area would check.
  */
 
-function babita_start_session(): void
+function babitha_start_session(): void
 {
     if (session_status() === PHP_SESSION_NONE) {
         session_set_cookie_params([
@@ -19,15 +19,15 @@ function babita_start_session(): void
     }
 }
 
-function babita_is_admin(): bool
+function babitha_is_admin(): bool
 {
-    babita_start_session();
+    babitha_start_session();
     return !empty($_SESSION['admin_id']);
 }
 
-function babita_require_admin(): void
+function babitha_require_admin(): void
 {
-    if (!babita_is_admin()) {
-        babita_error('Not authenticated.', 401);
+    if (!babitha_is_admin()) {
+        babitha_error('Not authenticated.', 401);
     }
 }

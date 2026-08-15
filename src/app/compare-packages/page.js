@@ -6,7 +6,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata("/compare-packages/", {
   title: "Compare Packages",
   description:
-    "Compare Babita Construction's Basic, Classic, Premium and Royale packages side by side — inclusions, rates, and a live built-up-area estimate.",
+    "Compare Babitha Constructions's Basic, Classic, Premium and Royale packages side by side — inclusions, rates, and a live built-up-area estimate.",
 });
 
 const faqJsonLd = {

@@ -7,15 +7,15 @@
  * hiccup is worse than one that occasionally under-limits.
  */
 
-function babita_rate_limit(string $bucket): void
+function babitha_rate_limit(string $bucket): void
 {
-    $cfg = babita_config();
+    $cfg = babitha_config();
     $dir = $cfg['rateLimitDir'];
     $max = $cfg['rateLimit']['maxAttempts'];
     $window = $cfg['rateLimit']['windowSeconds'];
 
     if (!is_dir($dir) && !@mkdir($dir, 0700, true) && !is_dir($dir)) {
-        error_log("babita_rate_limit: could not create $dir, failing open");
+        error_log("babitha_rate_limit: could not create $dir, failing open");
         return;
     }
 
@@ -25,7 +25,7 @@ function babita_rate_limit(string $bucket): void
 
     $fp = @fopen($file, 'c+');
     if (!$fp) {
-        error_log("babita_rate_limit: could not open $file, failing open");
+        error_log("babitha_rate_limit: could not open $file, failing open");
         return;
     }
 
@@ -46,6 +46,6 @@ function babita_rate_limit(string $bucket): void
     fclose($fp);
 
     if ($state['count'] > $max) {
-        babita_error('Too many submissions from this address. Please try again later.', 429);
+        babitha_error('Too many submissions from this address. Please try again later.', 429);
     }
 }

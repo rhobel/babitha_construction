@@ -8,9 +8,9 @@
  * every endpoint calls through this one function.
  */
 
-function babita_send_mail(string $to, string $subject, string $body, ?string $replyTo = null): void
+function babitha_send_mail(string $to, string $subject, string $body, ?string $replyTo = null): void
 {
-    $cfg = babita_config()['mail'];
+    $cfg = babitha_config()['mail'];
 
     $headers = "From: {$cfg['fromName']} <{$cfg['from']}>\r\n";
     $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
@@ -22,6 +22,6 @@ function babita_send_mail(string $to, string $subject, string $body, ?string $re
 
     $sent = @mail($to, $encodedSubject, $body, $headers);
     if (!$sent) {
-        error_log("babita_send_mail: failed to send to $to (\"$subject\")");
+        error_log("babitha_send_mail: failed to send to $to (\"$subject\")");
     }
 }

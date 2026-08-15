@@ -1,4 +1,4 @@
-# Deploy runbook — Babita Construction
+# Deploy runbook — Babitha Construction
 
 Target: Hostinger Premium shared hosting. Static export + PHP backend, per
 `requirements.md` §2 and §8.
@@ -23,7 +23,7 @@ Follow `api/README.md` in full:
 
 1. Create the MySQL database, import `api/schema.sql`.
 2. Copy `api/config.example.php` to a private path outside `public_html`
-   (e.g. `~/babita-secure/config.php`) and fill in real values.
+   (e.g. `~/babitha-secure/config.php`) and fill in real values.
 3. Create the upload/rate-limit directories referenced in that config.
 4. Seed an admin user in `admin_users`.
 
@@ -59,12 +59,9 @@ launched:
 
 - [ ] `php -l` clean on every file in `api/` and `api/lib/`
 - [ ] Every form submits successfully end-to-end (not just client-side
-      validation) — contact, vehicle lease, vehicle purchase, defaulter,
-      package enquiry, data deletion, admin login
+      validation) — contact, package enquiry, data deletion, admin login
 - [ ] Confirmation + admin notification emails actually arrive (check
       spam — see the deliverability note in `api/README.md`)
-- [ ] File uploads land in the private upload directory, not
-      `public_html`, with randomised filenames
 - [ ] Rate limiting actually blocks after the configured threshold
 - [ ] Admin login rejects bad credentials with a generic message and
       accepts good ones; session persists across requests

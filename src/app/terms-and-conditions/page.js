@@ -3,7 +3,7 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata("/terms-and-conditions/", {
   title: "Terms & Conditions",
-  description: "Terms governing use of the Babita Construction website and the forms and quotes on it.",
+  description: "Terms governing use of the Babitha Constructions website and the forms and quotes on it.",
 });
 
 export default function TermsAndConditionsPage() {
@@ -24,7 +24,7 @@ export default function TermsAndConditionsPage() {
 
         <h2 className="h-md" style={{ marginTop: 32, marginBottom: 12 }}>Use of this website</h2>
         <p>
-          This website provides information about Babita Construction&apos;s services and lets you
+          This website provides information about Babitha Constructions&apos;s services and lets you
           submit enquiries, applications and vehicle listings through its forms. Submitting a form
           is a request for us to contact you — it is not a booking, contract or confirmed
           transaction.

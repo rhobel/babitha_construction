@@ -22,10 +22,10 @@ export default function OpengraphImage() {
       >
         <div style={{ display: "flex", width: 64, height: 8, background: "#FF5E14", marginBottom: 40 }} />
         <div style={{ display: "flex", fontSize: 72, fontWeight: 800, letterSpacing: "-0.02em" }}>
-          Babita Construction
+          Babitha Constructions
         </div>
         <div style={{ display: "flex", fontSize: 32, color: "#C6D2E4", marginTop: 20 }}>
-          Construction · Transportation · Mining — Odisha
+          Construction · Transportation · Mining — Bangalore
         </div>
       </div>
     ),

@@ -9,7 +9,7 @@ import { COMPANY } from "@/data/company";
 export const metadata = pageMetadata("/", {
   title: "Home",
   description:
-    "Babita Construction builds, moves and mines across Odisha — construction, transportation and mining under one in-house team.",
+    "Babitha Constructions builds, moves and mines across Bangalore — construction, transportation and mining under one in-house team.",
 });
 
 const WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
@@ -34,7 +34,9 @@ const localBusinessJsonLd = {
   address: {
     "@type": "PostalAddress",
     streetAddress: COMPANY.address,
-    addressRegion: "Odisha",
+    addressLocality: "Bangalore",
+    addressRegion: "Karnataka",
+    postalCode: "560090",
     addressCountry: "IN",
   },
   openingHoursSpecification: COMPANY.hours

@@ -6,7 +6,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata("/about/", {
   title: "About Us",
   description:
-    "Babita Construction has worked across construction, mining and transportation in Odisha for over two decades, with an in-house team, plant and fleet.",
+    "Babitha Constructions has worked across construction, mining and transportation in Bangalore for over two decades, with an in-house team, plant and fleet.",
 });
 
 export default function AboutPage() {
@@ -16,7 +16,7 @@ export default function AboutPage() {
         <div className="wrap">
           <span className="eyebrow">About us</span>
           <h1 className="h-xl" style={{ color: "#fff", marginBottom: 18 }}>
-            {COMPANY.yearsInOperation} years of building across Odisha.
+            {COMPANY.yearsInOperation} years of building across Bangalore.
           </h1>
           <p className="lede" style={{ color: "#c6d2e4" }}>
             Construction, mining and transportation, run by one in-house team with its own plant, fleet and site engineers.
@@ -42,12 +42,8 @@ export default function AboutPage() {
             </div>
             <div className="card">
               <span className="card-num">Where we work</span>
-              <h3>Odisha, city by city</h3>
-              <ul className="check-list">
-                {WHERE_WE_WORK.map((city) => (
-                  <li key={city}>{city}</li>
-                ))}
-              </ul>
+              <h3>Based in {WHERE_WE_WORK[0]}</h3>
+              <p>Our office, plant and fleet are based here, and our project work runs across the city.</p>
             </div>
           </div>
         </div>

@@ -13,14 +13,14 @@ the root `sprint.md`).
    or paste `schema.sql` into phpMyAdmin.
 
 2. **Private config, outside `public_html`.** Copy `config.example.php` to
-   `~/babita-secure/config.php` (a sibling directory to `public_html`, not
+   `~/babitha-secure/config.php` (a sibling directory to `public_html`, not
    inside it) and fill in real values. `lib/config.php` finds it
    automatically via `dirname($_SERVER['DOCUMENT_ROOT'])`; override with the
-   `BABITA_CONFIG_PATH` environment variable if your account layout differs.
+   `BABITHA_CONFIG_PATH` environment variable if your account layout differs.
 
 3. **Upload storage.** Create the directories referenced by
    `uploadDir` and `rateLimitDir` in your config (e.g.
-   `~/babita-secure/uploads` and `~/babita-secure/rate-limit`), writable by
+   `~/babitha-secure/uploads` and `~/babitha-secure/rate-limit`), writable by
    the PHP process (typically the same user PHP-FPM runs as on shared
    hosting — no special chmod beyond owner-writable should be needed).
 
@@ -47,7 +47,7 @@ php -l api/*.php api/lib/*.php   # syntax check every file
 php -S localhost:8000 -t api     # serve it locally
 ```
 
-Point a local MySQL instance and a `config.php` (with `BABITA_CONFIG_PATH`
+Point a local MySQL instance and a `config.php` (with `BABITHA_CONFIG_PATH`
 set) at it, then exercise every endpoint with real `multipart/form-data`
 POSTs (curl or the actual frontend forms with `submitForm.js`'s
 `fetch('/api/...')` calls) before it goes anywhere near staging.
@@ -57,7 +57,7 @@ POSTs (curl or the actual frontend forms with `submitForm.js`'s
 `lib/mailer.php` uses PHP's built-in `mail()`. On shared hosting without
 SPF/DKIM configured for the sending domain, this routinely lands in spam
 or gets silently dropped by the receiving server. If confirmation emails
-aren't showing up reliably after launch, swap `babita_send_mail()`'s body
+aren't showing up reliably after launch, swap `babitha_send_mail()`'s body
 for an SMTP-based mailer (PHPMailer + a transactional provider) — it's the
 only function that needs to change.
 

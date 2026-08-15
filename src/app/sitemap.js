@@ -8,9 +8,6 @@ const ROUTES = [
   "/compare-packages/",
   "/projects/",
   "/contact/",
-  "/vehicle-registration/",
-  "/purchase-vehicle-registration/",
-  "/default-vehicle-registration/",
   "/data-deletion-request/",
   "/privacy-policy/",
   "/terms-and-conditions/",
@@ -20,7 +17,7 @@ const ROUTES = [
 export const dynamic = "force-static";
 
 export default function sitemap() {
-  const base = "https://babitaconstruction.com";
+  const base = "https://babithaconstruction.com";
   const lastModified = new Date();
 
   return ROUTES.map((route) => ({

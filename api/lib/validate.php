@@ -6,7 +6,7 @@
  * database, so every rule enforced in JS is re-checked here.
  */
 
-function babita_require(array $data, array $fields): array
+function babitha_require(array $data, array $fields): array
 {
     $errors = [];
     foreach ($fields as $field) {
@@ -17,25 +17,25 @@ function babita_require(array $data, array $fields): array
     return $errors;
 }
 
-function babita_valid_email(string $email): bool
+function babitha_valid_email(string $email): bool
 {
     return (bool) filter_var($email, FILTER_VALIDATE_EMAIL);
 }
 
-function babita_valid_phone(string $phone): bool
+function babitha_valid_phone(string $phone): bool
 {
     return (bool) preg_match('/^[+\d][\d\s-]{7,}$/', $phone);
 }
 
-function babita_sanitize(string $value): string
+function babitha_sanitize(string $value): string
 {
     return trim(strip_tags($value));
 }
 
-function babita_check_honeypot(): void
+function babitha_check_honeypot(): void
 {
     if (!empty($_POST['company'] ?? '')) {
         // Pretend success so the bot doesn't learn the honeypot failed.
-        babita_success(['reference' => babita_reference('BC')]);
+        babitha_success(['reference' => babitha_reference('BC')]);
     }
 }

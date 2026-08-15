@@ -22,5 +22,5 @@ require __DIR__ . '/session.php';
 
 set_exception_handler(function (Throwable $e): void {
     error_log('Unhandled exception: ' . $e->getMessage());
-    babita_error('Something went wrong. Please try again or call us directly.', 500);
+    babitha_error('Something went wrong. Please try again or call us directly.', 500);
 });
