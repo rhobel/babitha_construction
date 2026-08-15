@@ -77,4 +77,18 @@ export const TESTIMONIALS = [
     name: "SK Modasir Hossain",
     role: "Project Manager",
   },
+  {
+    quote:
+      "We compared three builders before signing. Babitha Constructions was the only one who showed us a real stage-wise checklist instead of a vague timeline — and they stuck to it.",
+    initials: "RK",
+    name: "Ramesh Kumar",
+    role: "Homeowner, Bangalore",
+  },
+  {
+    quote:
+      "Having our own site engineer assigned for the whole project made a real difference. Every question got answered by someone who actually knew our site, not a call centre.",
+    initials: "AP",
+    name: "Anitha Prakash",
+    role: "Homeowner, Bangalore",
+  },
 ];
