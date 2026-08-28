@@ -221,7 +221,42 @@ const ICONS = {
       <path d="M12 3c2 3-1 4-1 6.5A3.5 3.5 0 0 0 14.5 13c1.5 0 2.5-1 2.5-1 .3 2-1 6-5 6s-6-3-6-6.5c0-2 1-3.5 2-5C9 5 10 4 12 3Z" />
     </svg>
   ),
+  // Service & warranty group — these five rows had no icon and rendered bare.
+  eng: (
+    <svg {...ICON_PROPS}>
+      <path d="M4 16a8 8 0 0 1 16 0" />
+      <path d="M10 8.4V5.5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2.9" />
+      <path d="M3 16h18v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z" />
+    </svg>
+  ),
+  qa: (
+    <svg {...ICON_PROPS}>
+      <rect x="5" y="4" width="14" height="17" rx="2" />
+      <path d="M9 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1" />
+      <path d="m9.5 12.5 1.8 1.8 3.4-3.6" />
+    </svg>
+  ),
+  app: (
+    <svg {...ICON_PROPS}>
+      <rect x="7" y="2.5" width="10" height="19" rx="2" />
+      <line x1="11" y1="18.5" x2="13" y2="18.5" />
+      <path d="M10 8h4M10 11.5h4" />
+    </svg>
+  ),
+  warrS: (
+    <svg {...ICON_PROPS}>
+      <path d="M12 3l7 3v6c0 4-3 6.5-7 8-4-1.5-7-4-7-8V6l7-3Z" />
+      <path d="M9.5 14V10.5L12 8.5l2.5 2V14" />
+    </svg>
+  ),
+  warrM: (
+    <svg {...ICON_PROPS}>
+      <path d="M12 3l7 3v6c0 4-3 6.5-7 8-4-1.5-7-4-7-8V6l7-3Z" />
+      <path d="m9.4 11.8 1.9 1.9 3.4-3.6" />
+    </svg>
+  ),
 };
+
 
 export default function RowIcon({ rowKey }) {
   const icon = ICONS[rowKey];

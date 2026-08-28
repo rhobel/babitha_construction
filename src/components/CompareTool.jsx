@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import { CITIES, INCLUSION_GROUPS, PACKAGES } from "@/data/packages";
-import PackageEnquiryForm from "./PackageEnquiryForm";
 import RowIcon from "./icons/CompareRowIcons";
 
 const inr = (n) => `₹${Math.round(n).toLocaleString("en-IN")}`;
@@ -12,7 +11,6 @@ export default function CompareTool() {
   const [cityId, setCityId] = useState(CITIES[0].id);
   const [diffOnly, setDiffOnly] = useState(false);
   const [area, setArea] = useState(2000);
-  const [enquiryOpen, setEnquiryOpen] = useState(false);
 
   const cityObj = CITIES.find((c) => c.id === cityId) ?? CITIES[0];
   const mult = cityObj.multiplier;
@@ -85,10 +83,8 @@ export default function CompareTool() {
         <div
           style={{
             gridColumn: "1/-1",
-            fontFamily: "var(--mono)",
-            fontSize: 11,
-            letterSpacing: "0.05em",
-            color: "var(--slate)",
+            fontSize: "0.74rem",
+            color: "var(--mute)",
           }}
         >
           Indicative only · GST included · Excludes compound wall, borewell and site levelling
@@ -123,29 +119,11 @@ export default function CompareTool() {
         </table>
       </div>
 
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 26 }}>
-        <button
-          type="button"
-          className="btn btn-primary"
-          onClick={() => setEnquiryOpen((o) => !o)}
-        >
-          {enquiryOpen ? "Hide consultation form" : "Book a free consultation"}
-        </button>
-        <Link className="btn btn-outline" href="/contact/">
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 24 }}>
+        <Link className="cl-call" href="/contact/">
           Ask about customisation
         </Link>
       </div>
-
-      {enquiryOpen && (
-        <div style={{ marginTop: 20 }}>
-          <PackageEnquiryForm
-            packageOptions={PACKAGES.map((p) => p.name)}
-            defaultCityName={cityObj.name}
-            defaultPackageName={PACKAGES[0]?.name}
-            defaultArea={areaNum}
-          />
-        </div>
-      )}
     </>
   );
 }
@@ -174,7 +152,10 @@ function RowGroup({ group }) {
               </div>
             </td>
             {PACKAGES.map((p) => (
-              <td key={p.id}>
+              <td
+                key={p.id}
+                className={typeof p.values[key] === "boolean" ? "cp-cell-icon" : undefined}
+              >
                 <CellValue value={p.values[key]} />
               </td>
             ))}

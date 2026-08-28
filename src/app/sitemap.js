@@ -1,15 +1,13 @@
 const ROUTES = [
   "/",
-  "/about/",
-  "/services/",
   "/construction/",
-  "/compare-packages/",
+  "/architecture/",
+  "/packages/",
+  "/cost-plus/",
   "/projects/",
   "/contact/",
-  "/data-deletion-request/",
   "/privacy-policy/",
   "/terms-and-conditions/",
-  "/support/",
 ];
 
 export const dynamic = "force-static";

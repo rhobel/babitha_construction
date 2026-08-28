@@ -17,6 +17,27 @@ To enable Google Analytics in this build, set `NEXT_PUBLIC_GA_ID` in the
 build environment before running `npm run build` (see
 `src/components/GoogleAnalytics.jsx` — it's a no-op until this is set).
 
+## Testing the forms
+
+`next dev` serves the static site only — it does not execute PHP, and `api/`
+sits outside the served directory. **Form submissions therefore always fail on
+localhost**; that is expected, not a bug. The form shows a fallback message
+with the office number rather than an error.
+
+To exercise a form end to end you need PHP + MySQL:
+
+```
+# from the repo root, with PHP 8 installed
+php -S localhost:8080 -t out          # serve the built export
+# then copy api/ into out/api/ and point BABITHA_CONFIG_PATH at a real config
+BABITHA_CONFIG_PATH=/abs/path/to/config.php php -S localhost:8080 -t out
+```
+
+The only endpoint the frontend calls is **`api/quote.php`**, backed by the
+`quote_requests` table. Verify after deploy by submitting the hero form and
+checking that (a) a row lands in `quote_requests` and (b) the admin
+notification email arrives.
+
 ## 2. Backend (one-time, before first deploy)
 
 Follow `api/README.md` in full:

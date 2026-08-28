@@ -9,6 +9,9 @@ RewriteRule ^transporatation/?$ /transportation/ [R=301,L]
 RewriteRule ^minning/?$ /mining/ [R=301,L]
 RewriteRule ^index\.view$ / [R=301,L]
 
+# Compare Packages moved from /compare-packages/ to /packages/.
+RewriteRule ^compare-packages/?$ /packages/ [R=301,L]
+
 # ── Force HTTPS ────────────────────────────────────────────────────────
 RewriteCond %{HTTPS} off
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]

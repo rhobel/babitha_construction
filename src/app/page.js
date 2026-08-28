@@ -1,10 +1,24 @@
-import HeroSlider from "@/components/HeroSlider";
-import StatsStrip from "@/components/StatsStrip";
-import AboutTeaser from "@/components/AboutTeaser";
-import ServicesGrid from "@/components/ServicesGrid";
-import TestimonialsSection from "@/components/TestimonialsSection";
+import Hero from "@/components/Hero";
+import TrustedBrands from "@/components/TrustedBrands";
+import ExpertiseSection from "@/components/ExpertiseSection";
+import ProjectCarousel from "@/components/ProjectCarousel";
+import ContractModels from "@/components/ContractModels";
+import PackagesBand from "@/components/PackagesBand";
+import HowItWorks from "@/components/HowItWorks";
+import AdvantageGrid from "@/components/AdvantageGrid";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
+import CtaPanel from "@/components/CtaPanel";
+import FaqSection from "@/components/FaqSection";
+import AboutBand from "@/components/AboutBand";
+import ClosingCta from "@/components/ClosingCta";
 import { pageMetadata } from "@/lib/seo";
 import { COMPANY } from "@/data/company";
+import {
+  COMPLETED,
+  COMPLETED_PROJECTS,
+  IN_PROGRESS,
+  IN_PROGRESS_PROJECTS,
+} from "@/data/projectShowcase";
 
 export const metadata = pageMetadata("/", {
   title: "Home",
@@ -55,11 +69,29 @@ const localBusinessJsonLd = {
 export default function Home() {
   return (
     <>
-      <HeroSlider />
-      <StatsStrip />
-      <AboutTeaser />
-      <ServicesGrid />
-      <TestimonialsSection />
+      <Hero />
+      <TrustedBrands />
+      <ExpertiseSection />
+      <ProjectCarousel
+        id="in-progress"
+        meta={IN_PROGRESS}
+        projects={IN_PROGRESS_PROJECTS}
+      />
+      <ProjectCarousel
+        id="completed"
+        meta={COMPLETED}
+        projects={COMPLETED_PROJECTS}
+        tinted
+      />
+      <ContractModels />
+      <PackagesBand />
+      <HowItWorks />
+      <AdvantageGrid />
+      <TestimonialCarousel />
+      <CtaPanel />
+      <FaqSection />
+      <AboutBand />
+      <ClosingCta />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}

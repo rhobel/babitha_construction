@@ -14,6 +14,11 @@ export const COMPANY = {
   yearsInOperation: 25, // Follows design.html's resolved figure — pending final client confirmation (B-3)
 };
 
+export const TOPBAR_PROMO = {
+  label: "Transparent pricing with Cost-Plus",
+  href: "/cost-plus/",
+};
+
 // Awaiting real profile URLs from the client (requirements.md §9) — href stays
 // null until then so we don't ship dead "#" links.
 export const SOCIAL_LINKS = [

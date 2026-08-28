@@ -4,10 +4,28 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { NAV, ADMIN_LOGIN } from "@/data/nav";
-import { COMPANY, SOCIAL_LINKS } from "@/data/company";
+import { NAV } from "@/data/nav";
+import { TOPBAR_PROMO } from "@/data/company";
+import { COMPANY } from "@/data/company";
 
 const FOCUSABLE = "a[href], button:not([disabled])";
+
+// Icons for the Services submenu cards, keyed by nav child `icon`.
+const MENU_ICONS = {
+  helmet: (
+    <>
+      <path d="M4 16a8 8 0 0 1 16 0" />
+      <path d="M10 8.4V5.5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2.9" />
+      <path d="M3 16h18v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z" />
+    </>
+  ),
+  compass: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <path d="m15.5 8.5-2 5-5 2 2-5 5-2Z" />
+    </>
+  ),
+};
 
 export default function SiteHeader() {
   const pathname = usePathname();
@@ -108,33 +126,15 @@ export default function SiteHeader() {
 
       <div className="topbar">
         <div className="wrap">
-          <div className="topbar-social">
-            <span>Follow us</span>
-            {SOCIAL_LINKS.map((s) =>
-              s.href ? (
-                <a key={s.label} href={s.href}>
-                  {s.label}
-                </a>
-              ) : (
-                <span key={s.label} className="is-pending" aria-hidden="true">
-                  {s.label}
-                </span>
-              ),
-            )}
-          </div>
-          <div className="topbar-call">
-            <span>
-              Call us{" "}
-              <a href={`tel:${COMPANY.phones[0].replace(/\s+/g, "")}`}>
-                <b>{COMPANY.phones[0]}</b>
-              </a>
-              {" · "}
-              <a href={`mailto:${COMPANY.topbarEmail}`}>{COMPANY.topbarEmail}</a>
-            </span>
-            <Link className="topbar-admin" href={ADMIN_LOGIN.href}>
-              {ADMIN_LOGIN.label}
-            </Link>
-          </div>
+          <Link className="topbar-promo" href={TOPBAR_PROMO.href}>
+            {TOPBAR_PROMO.label}
+          </Link>
+          <a className="topbar-call" href={`tel:${COMPANY.phones[0].replace(/\s+/g, "")}`}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+              <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z" />
+            </svg>
+            <b>{COMPANY.phones[0]}</b>
+          </a>
         </div>
       </div>
 
@@ -173,23 +173,43 @@ export default function SiteHeader() {
                     >
                       {item.label} <i className="caret" aria-hidden="true" />
                     </button>
-                    <ul
+                    <div
                       className={`submenu${openMenu === item.label ? " is-open" : ""}`}
                     >
-                      {item.children.map((child) => (
-                        <li key={child.href}>
-                          <Link
-                            href={child.href}
-                            onClick={() => setOpenMenu(null)}
-                          >
-                            {child.label}
-                            {child.tag && (
-                              <span className="tag-new">{child.tag}</span>
-                            )}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
+                      {item.menuTitle && (
+                        <span className="submenu-title">{item.menuTitle}</span>
+                      )}
+                      <ul>
+                        {item.children.map((child) => (
+                          <li key={child.href}>
+                            <Link href={child.href} onClick={() => setOpenMenu(null)}>
+                              {child.icon && (
+                                <span className="submenu-icon">
+                                  <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="1.7"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    aria-hidden="true"
+                                  >
+                                    {MENU_ICONS[child.icon]}
+                                  </svg>
+                                </span>
+                              )}
+                              <span className="submenu-text">
+                                <b>
+                                  {child.label}
+                                  {child.tag && <span className="tag-new">{child.tag}</span>}
+                                </b>
+                                {child.desc && <small>{child.desc}</small>}
+                              </span>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </>
                 ) : (
                   <Link
@@ -204,7 +224,7 @@ export default function SiteHeader() {
           </ul>
 
           <div className="header-cta">
-            <Link className="btn btn-primary btn-sm" href="/compare-packages/">
+            <Link className="btn btn-primary btn-sm" href="/packages/">
               Compare packages
             </Link>
             <button
@@ -259,14 +279,11 @@ export default function SiteHeader() {
                 </Link>
               ),
             )}
-            <Link href={ADMIN_LOGIN.href} onClick={closeDrawer}>
-              {ADMIN_LOGIN.label}
-            </Link>
           </nav>
           <Link
             className="btn btn-primary"
             style={{ marginTop: 20, width: "100%" }}
-            href="/compare-packages/"
+            href="/packages/"
             onClick={closeDrawer}
           >
             Compare packages

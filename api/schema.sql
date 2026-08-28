@@ -30,6 +30,17 @@ CREATE TABLE IF NOT EXISTS package_enquiries (
     INDEX idx_created_at (created_at)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+CREATE TABLE IF NOT EXISTS quote_requests (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    reference VARCHAR(32) NOT NULL,
+    name VARCHAR(150) NOT NULL,
+    phone VARCHAR(40) NOT NULL,
+    service VARCHAR(100) NOT NULL,
+    ip VARCHAR(45) NOT NULL,
+    created_at DATETIME NOT NULL,
+    INDEX idx_created_at (created_at)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 CREATE TABLE IF NOT EXISTS data_deletion_requests (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(150) NOT NULL,
