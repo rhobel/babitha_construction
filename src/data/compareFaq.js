@@ -21,7 +21,7 @@ export const COMPARE_FAQ = [
   },
   {
     question: "Do the rates include GST?",
-    answer: "Yes. Every rate shown includes GST.",
+    answer: "No. The rates shown exclude GST, which is charged extra at 18%.",
   },
   {
     question: "Are there hidden costs?",

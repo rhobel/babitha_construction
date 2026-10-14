@@ -5,9 +5,10 @@ import {
   CONTACT_START,
   WHATSAPP_HREF,
 } from "@/data/contactPage";
+import { telHref } from "@/data/company";
 
 export default function ContactStart() {
-  const tel = `tel:${CONTACT_HERO.phone.replace(/\s/g, "")}`;
+  const tel = telHref(CONTACT_HERO.phones[0]);
 
   return (
     <section className="cstart" id="start-here">

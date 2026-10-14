@@ -35,7 +35,7 @@ export default function ConstructionPage() {
         body={CONSTRUCTION_CTA.body}
         chips={CONSTRUCTION_CTA.chips}
         primary={CONSTRUCTION_CTA.primary}
-        phone={CONSTRUCTION_CTA.phone}
+        phones={CONSTRUCTION_CTA.phones}
       />
     </>
   );

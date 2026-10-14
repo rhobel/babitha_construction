@@ -28,7 +28,7 @@ export default function ProjectsPage() {
         heading={PROJECTS_CTA.heading}
         body={PROJECTS_CTA.body}
         primary={PROJECTS_CTA.primary}
-        phone={PROJECTS_CTA.phone}
+        phones={PROJECTS_CTA.phones}
       />
     </>
   );

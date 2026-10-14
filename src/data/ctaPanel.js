@@ -1,4 +1,4 @@
-import { COMPANY } from "./company";
+import { CALL_PHONES, COMPANY } from "./company";
 import { HERO_FORM } from "./home";
 
 // Closing call-to-action panel: pitch on the left, the same three-field
@@ -12,7 +12,7 @@ export const CTA_PANEL = {
     "Detailed estimate within 24 hours",
     "No obligation, explore at your pace",
   ],
-  phone: COMPANY.phones[0],
+  phones: CALL_PHONES,
   phoneNote: `Speak directly with a ${COMPANY.name} expert`,
 };
 

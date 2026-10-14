@@ -1,8 +1,8 @@
 export const COMPANY = {
   name: "Babitha Constructions",
-  legalName: "Babitha Constructions Pvt Ltd",
+  legalName: "Babitha Constructions Pvt. Ltd",
   tagline: "Bangalore · Since 2000",
-  phones: ["+91 890 4040 606", "+91 9945 378 151"],
+  phones: ["+91 890 4040 606", "+91 620 096 8023", "+91 9945 378 151"],
   topbarEmail: "contact@babithaconstruction.com",
   footerEmail: "contact@babithaconstruction.com",
   address: "#30, 1st Cross, HMR Layout, Near Pavithra School, Medarahalli Chikkabanavara, Bangalore - 560 090",
@@ -13,6 +13,12 @@ export const COMPANY = {
   ],
   yearsInOperation: 25, // Follows design.html's resolved figure — pending final client confirmation (B-3)
 };
+
+// The numbers shown wherever the site offers a single "call us" spot. The
+// footer and contact-page office card list every number in `phones`.
+export const CALL_PHONES = COMPANY.phones.slice(0, 2);
+
+export const telHref = (phone) => `tel:${phone.replace(/\s/g, "")}`;
 
 export const TOPBAR_PROMO = {
   label: "Transparent pricing with Cost-Plus",

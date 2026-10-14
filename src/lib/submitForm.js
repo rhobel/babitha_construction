@@ -1,4 +1,4 @@
-import { COMPANY } from "@/data/company";
+import { CALL_PHONES } from "@/data/company";
 
 // Single seam between every form and its backend. Every form component
 // builds a flat values object (strings + File objects for uploads) and
@@ -8,7 +8,7 @@ import { COMPANY } from "@/data/company";
 // alongside the static export, with a private config.php and the MySQL
 // schema imported. `next dev` does not execute PHP, so submissions fail
 // locally by design — see DEPLOY.md "Testing the forms".
-const FALLBACK = `We couldn't send that just now. Please call ${COMPANY.phones[0]} and we'll take the details.`;
+const FALLBACK = `We couldn't send that just now. Please call ${CALL_PHONES.join(" or ")} and we'll take the details.`;
 
 export async function submitForm(endpoint, values) {
   const formData = new FormData();

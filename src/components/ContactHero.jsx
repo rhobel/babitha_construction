@@ -1,4 +1,5 @@
 import { CONTACT_CHANNELS, CONTACT_HERO, WHATSAPP_HREF } from "@/data/contactPage";
+import { telHref } from "@/data/company";
 
 const ICONS = {
   phone: <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z" />,
@@ -31,8 +32,6 @@ const Arrow = () => (
 );
 
 export default function ContactHero() {
-  const tel = `tel:${CONTACT_HERO.phone.replace(/\s/g, "")}`;
-
   return (
     <section className="chero" id="contact-hero">
       <div className="wrap">
@@ -45,15 +44,21 @@ export default function ContactHero() {
 
           <div className="chero-direct">
             <span className="chero-direct-title">{CONTACT_HERO.directTitle}</span>
-            <a className="chero-direct-row chero-direct-row--primary" href={tel}>
-              <span className="chero-direct-icon">
-                <Icon name="phone" />
-              </span>
-              <span>
-                <small>Call</small>
-                <b>{CONTACT_HERO.phone}</b>
-              </span>
-            </a>
+            {CONTACT_HERO.phones.map((phone) => (
+              <a
+                className="chero-direct-row chero-direct-row--primary"
+                href={telHref(phone)}
+                key={phone}
+              >
+                <span className="chero-direct-icon">
+                  <Icon name="phone" />
+                </span>
+                <span>
+                  <small>Call</small>
+                  <b>{phone}</b>
+                </span>
+              </a>
+            ))}
             <a
               className="chero-direct-row"
               href={WHATSAPP_HREF}
@@ -79,7 +84,15 @@ export default function ContactHero() {
               </span>
               <div className="chero-ch-body">
                 <span className="chero-ch-label">{ch.label}</span>
-                <b className="chero-ch-value">{ch.value}</b>
+                {ch.phones ? (
+                  ch.phones.map((phone) => (
+                    <a className="chero-ch-value" href={telHref(phone)} key={phone}>
+                      {phone}
+                    </a>
+                  ))
+                ) : (
+                  <b className="chero-ch-value">{ch.value}</b>
+                )}
                 <p>{ch.body}</p>
                 <a
                   className="chero-ch-link"

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CLOSING_CTA } from "@/data/closingCta";
+import { telHref } from "@/data/company";
 
 export default function ClosingCta() {
   return (
@@ -18,15 +19,14 @@ export default function ClosingCta() {
                   <path d="M5 12h13M13 6l6 6-6 6" />
                 </svg>
               </Link>
-              <a
-                className="cl-call"
-                href={`tel:${CLOSING_CTA.phone.replace(/\s/g, "")}`}
-              >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-                  <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z" />
-                </svg>
-                Call {CLOSING_CTA.phone}
-              </a>
+              {CLOSING_CTA.phones.map((phone) => (
+                <a className="cl-call" href={telHref(phone)} key={phone}>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+                    <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z" />
+                  </svg>
+                  Call {phone}
+                </a>
+              ))}
             </div>
           </div>
 

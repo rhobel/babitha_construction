@@ -273,7 +273,7 @@ p {
 .topbar-call b {
   font-weight: 700;
 }
-.topbar-call:hover {
+.topbar-call a:hover {
   text-decoration: underline;
 }
 @media (max-width: 560px) {
@@ -3875,6 +3875,11 @@ select.control {
   max-width: 48ch;
   margin-bottom: 22px;
 }
+.archcta-phones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 26px;
+}
 .archcta-phone {
   display: inline-flex;
   align-items: center;
@@ -4792,8 +4797,7 @@ select.control {
 /* Design render beside the built result, split down the middle. */
 .gp-media {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 1 / 1;
 }
 .gp-shot {
   position: relative;
@@ -4807,36 +4811,19 @@ select.control {
   background-position: center;
   transition: transform 0.4s ease;
 }
+button.gp-img {
+  border: 0;
+  padding: 0;
+  width: 100%;
+  cursor: zoom-in;
+}
+button.gp-img:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: -3px;
+}
 .gp-card:hover .gp-img {
   transform: scale(1.05);
 }
-.gp-tag {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 0.74rem;
-  font-weight: 700;
-  padding: 6px 12px;
-  border-radius: 999px;
-  color: #fff;
-}
-.gp-tag svg {
-  width: 14px;
-  height: 14px;
-}
-.gp-tag--design {
-  background: rgba(0, 0, 0, 0.72);
-  -webkit-backdrop-filter: blur(6px); /* iOS Safari < 15.4 needs the prefix */
-  backdrop-filter: blur(6px);
-}
-.gp-tag--status {
-  background: var(--orange);
-}
-
 .gp-body {
   padding: clamp(18px, 2.2vw, 24px);
 }
@@ -4868,24 +4855,6 @@ select.control {
 .gp-pill--state {
   border: 1px solid #f0d6c4;
   color: var(--orange-ink);
-}
-.gp-view {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  margin-left: auto;
-  color: var(--orange-ink);
-  font-weight: 700;
-  font-size: 0.83rem;
-  white-space: nowrap;
-}
-.gp-view svg {
-  width: 15px;
-  height: 15px;
-  transition: transform 0.2s;
-}
-.gp-view:hover svg {
-  transform: translateX(4px);
 }
 .gp-title {
   font-size: clamp(1rem, 1.6vw, 1.15rem);
@@ -5154,6 +5123,16 @@ select.control {
   margin-bottom: 8px;
   /* Email addresses are long and must not spill out of the card. */
   overflow-wrap: anywhere;
+}
+a.chero-ch-value {
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+a.chero-ch-value:hover {
+  color: var(--orange-ink);
+}
+a.chero-ch-value:last-of-type {
+  margin-bottom: 8px;
 }
 .chero-ch-body p {
   font-size: 0.82rem;
@@ -5842,3 +5821,285 @@ select.control {
   color: var(--orange-ink);
 }
 
+
+/* ══ PACKAGE PRINT ════════════════════════════════════════ */
+.cp-print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 6px 11px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--navy);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    color 0.2s;
+}
+.cp-print-btn:hover {
+  border-color: var(--orange);
+  color: var(--orange-ink);
+}
+.cp-print-btn svg {
+  width: 14px;
+  height: 14px;
+  flex: none;
+}
+
+.cp-print-sheet {
+  display: none;
+}
+
+.cp-pw {
+  /* Tailwind's preflight zeroes the UA margin:auto that centres a modal. */
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  height: fit-content;
+  width: min(380px, calc(100vw - 32px));
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px;
+  background: #fff;
+  color: var(--slate);
+  box-shadow: var(--shadow);
+}
+.cp-pw::backdrop {
+  background: rgba(0, 0, 0, 0.45);
+}
+.cp-pw h3 {
+  color: var(--navy);
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+.cp-pw label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.cp-pw .control {
+  width: 100%;
+}
+.cp-pw-error {
+  color: var(--warn);
+  font-size: 0.76rem;
+  margin-top: 6px;
+}
+.cp-pw-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 18px;
+}
+.cp-pw-actions button {
+  cursor: pointer;
+  padding: 8px 18px;
+  line-height: 1.2;
+}
+
+@media print {
+  @page {
+    margin: 0;
+  }
+  body.is-printing-pkg > *:not(.cp-print-sheet) {
+    display: none !important;
+  }
+  body.is-printing-pkg .cp-print-sheet {
+    display: block;
+    color: #000;
+    font-size: 10.5pt;
+  }
+  .cps-page {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .cps-page > tbody > tr > td {
+    padding: 0 14mm;
+  }
+  .cps-page-gap {
+    height: 12mm;
+  }
+  .cps-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #fc8402;
+    margin-bottom: 16px;
+  }
+  .cps-head img {
+    height: 48px;
+    width: auto;
+  }
+  .cps-contact {
+    display: grid;
+    text-align: right;
+    font-size: 9pt;
+    gap: 2px;
+  }
+  .cps-title {
+    font-size: 20pt;
+    font-weight: 800;
+    margin: 0;
+  }
+  .cps-tag {
+    color: #555;
+    margin: 2px 0 12px;
+  }
+  .cps-summary {
+    display: flex;
+    gap: 28px;
+    margin: 0 0 16px;
+  }
+  .cps-summary dt {
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #666;
+  }
+  .cps-summary dd {
+    margin: 2px 0 0;
+    font-weight: 700;
+    font-size: 12pt;
+  }
+  .cps-summary {
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  .cps-total {
+    margin-left: auto;
+    text-align: right;
+  }
+  .cps-total dd {
+    font-size: 15pt;
+    color: #c43c08;
+  }
+  .cps-total small {
+    display: block;
+    font-size: 8pt;
+    color: #666;
+  }
+  .cps-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .cps-table + .cps-table {
+    margin-top: 16px;
+  }
+  .cps-table td,
+  .cps-table th {
+    border: 1px solid #ccc;
+    padding: 6px 8px;
+    text-align: left;
+    vertical-align: top;
+  }
+  .cps-table tr {
+    break-inside: avoid;
+  }
+  .cps-group th {
+    background: #f3f3f3;
+    font-weight: 800;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .cps-group th span,
+  .cps-label span {
+    display: block;
+    font-weight: 400;
+    font-size: 8.5pt;
+    color: #666;
+  }
+  .cps-label {
+    width: 34%;
+    font-weight: 600;
+  }
+  .cps-notes {
+    margin-top: 16px;
+    break-inside: avoid;
+  }
+  .cps-notes h2 {
+    font-size: 13pt;
+    font-weight: 800;
+    margin: 0 0 6px;
+  }
+  .cps-notes ul {
+    list-style: disc;
+    padding-left: 18px;
+    margin: 0;
+    font-size: 10.5pt;
+    line-height: 1.45;
+    font-weight: 700;
+  }
+  .cps-notes li + li {
+    margin-top: 4px;
+  }
+}
+
+/* ══ PROJECT PHOTO LIGHTBOX ═══════════════════════════════ */
+.gp-lightbox {
+  /* Tailwind's preflight zeroes the UA margin:auto that centres a modal. */
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 32px);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+}
+.gp-lightbox::backdrop {
+  background: rgba(0, 0, 0, 0.82);
+}
+.gp-lightbox figure {
+  margin: 0;
+}
+.gp-lightbox img {
+  display: block;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 90px);
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+}
+.gp-lightbox figcaption {
+  color: #fff;
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: 10px;
+}
+.gp-lightbox-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 0;
+  background: #fff;
+  color: var(--navy);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+.gp-lightbox-close:hover {
+  color: var(--orange-ink);
+}
+@media (max-width: 560px) {
+  .gp-lightbox-close {
+    top: 6px;
+    right: 6px;
+  }
+}

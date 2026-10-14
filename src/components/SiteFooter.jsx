@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { COMPANY } from "@/data/company";
+import { CALL_PHONES, COMPANY, telHref } from "@/data/company";
 import {
   FOOTER_BADGES,
   FOOTER_BLURB,
@@ -64,10 +64,10 @@ export default function SiteFooter() {
                 <ContactIcon name="phone" />
                 {/* Both numbers share one row. */}
                 <span className="ft-phones">
-                  {COMPANY.phones.map((phone, i) => (
+                  {CALL_PHONES.map((phone, i) => (
                     <span key={phone}>
                       {i > 0 && <span aria-hidden="true"> · </span>}
-                      <a href={`tel:${phone.replace(/\s+/g, "")}`}>{phone}</a>
+                      <a href={telHref(phone)}>{phone}</a>
                     </span>
                   ))}
                 </span>

@@ -7,8 +7,8 @@ import { PACKAGES } from "./packages";
 export const PACKAGES_SECTION = {
   eyebrow: "Our packages",
   heading: "House construction packages in Bangalore",
-  body: "Choose from our range of construction packages designed for every budget. Every rate includes GST, design and project management.",
-  rateNote: "Indicative only · GST included · Excludes compound wall, borewell and site levelling",
+  body: "Choose from our range of construction packages designed for every budget. Every rate includes design and project management; GST @ 18% is extra.",
+  rateNote: "Indicative only · GST @ 18% extra · Excludes compound wall, borewell and site levelling",
   ctaLabel: "View full specs",
   ctaHref: "/packages/",
 };

@@ -6,7 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { NAV } from "@/data/nav";
 import { TOPBAR_PROMO } from "@/data/company";
-import { COMPANY } from "@/data/company";
+import { CALL_PHONES, COMPANY, telHref } from "@/data/company";
 
 const FOCUSABLE = "a[href], button:not([disabled])";
 
@@ -129,12 +129,19 @@ export default function SiteHeader() {
           <Link className="topbar-promo" href={TOPBAR_PROMO.href}>
             {TOPBAR_PROMO.label}
           </Link>
-          <a className="topbar-call" href={`tel:${COMPANY.phones[0].replace(/\s+/g, "")}`}>
+          <span className="topbar-call">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
               <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z" />
             </svg>
-            <b>{COMPANY.phones[0]}</b>
-          </a>
+            {CALL_PHONES.map((phone, i) => (
+              <span key={phone}>
+                {i > 0 && " / "}
+                <a href={telHref(phone)}>
+                  <b>{phone}</b>
+                </a>
+              </span>
+            ))}
+          </span>
         </div>
       </div>
 

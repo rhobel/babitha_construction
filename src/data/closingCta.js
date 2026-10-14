@@ -1,4 +1,4 @@
-import { COMPANY } from "./company";
+import { CALL_PHONES, COMPANY } from "./company";
 
 // Final call-to-action band, closing the home page.
 export const CLOSING_CTA = {
@@ -6,7 +6,7 @@ export const CLOSING_CTA = {
   heading: "Start your home construction journey today",
   body: "Share your plot details, budget and construction goals. Our team will help you understand the right package, contract model and next steps before you commit.",
   primary: { label: "Get a free quote", href: "#get-estimate" },
-  phone: COMPANY.phones[0],
+  phones: CALL_PHONES,
   points: [
     "Free consultation within 24 hours",
     "Package and Cost-Plus guidance",

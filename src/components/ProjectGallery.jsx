@@ -1,7 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import Link from "next/link";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   GALLERY_PROJECTS,
   PROJECT_GALLERY,
@@ -16,6 +15,7 @@ export default function ProjectGallery() {
   const [tab, setTab] = useState("all");
   const [sort, setSort] = useState("latest");
   const [type, setType] = useState("all");
+  const [zoom, setZoom] = useState(null); // { src, alt } of the open photo
 
   const shown = useMemo(() => {
     const list = GALLERY_PROJECTS.filter(
@@ -86,34 +86,13 @@ export default function ProjectGallery() {
               <li className="gp-card" key={p.ref}>
                 <div className="gp-media">
                   <div className="gp-shot">
-                    <div
-                        className="gp-img"
-                        style={{ backgroundImage: `url('${p.designImage}')` }}
-                        role="img"
-                        aria-label={`${p.title} — 3D design`}
-                      />
-                    <span className="gp-tag gp-tag--design">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-                        <circle cx="12" cy="12" r="9" />
-                        <path d="m15.5 8.5-2 5-5 2 2-5 5-2Z" />
-                      </svg>
-                      Design
-                    </span>
-                  </div>
-                  <div className="gp-shot">
-                    <div
-                        className="gp-img"
-                        style={{ backgroundImage: `url('${p.siteImage}')` }}
-                        role="img"
-                        aria-label={`${p.title} — on site`}
-                      />
-                    <span className="gp-tag gp-tag--status">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-                        <path d="M4 16a8 8 0 0 1 16 0" />
-                        <path d="M3 16h18v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z" />
-                      </svg>
-                      {STATUS_LABEL[p.status]}
-                    </span>
+                    <button
+                      type="button"
+                      className="gp-img"
+                      style={{ backgroundImage: `url('${p.image}')` }}
+                      aria-label={`View photo: ${p.title}`}
+                      onClick={() => setZoom({ src: p.image, alt: p.title })}
+                    />
                   </div>
                 </div>
 
@@ -122,14 +101,6 @@ export default function ProjectGallery() {
                     <span className="gp-pill gp-pill--ref">{p.ref}</span>
                     <span className="gp-pill gp-pill--package">{p.package}</span>
                     <span className="gp-pill gp-pill--state">{STATUS_LABEL[p.status]}</span>
-                    {/* No per-project detail pages — this is an enquiry link,
-                        so it says so. */}
-                    <Link className="gp-view" href="/contact/">
-                      Ask about this
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                        <path d="M5 12h13M13 6l6 6-6 6" />
-                      </svg>
-                    </Link>
                   </div>
 
                   <h2 className="gp-title">{p.title}</h2>
@@ -166,6 +137,35 @@ export default function ProjectGallery() {
           </ul>
         )}
       </div>
+
+      {zoom && <PhotoLightbox photo={zoom} onClose={() => setZoom(null)} />}
     </section>
+  );
+}
+
+function PhotoLightbox({ photo, onClose }) {
+  const dialogRef = useRef(null);
+
+  useEffect(() => {
+    dialogRef.current?.showModal();
+  }, []);
+
+  return (
+    // Clicking the dark backdrop (the dialog itself, outside the figure) closes it.
+    <dialog
+      ref={dialogRef}
+      className="gp-lightbox"
+      onCancel={onClose}
+      onClick={(e) => e.target === e.currentTarget && onClose()}
+    >
+      <figure>
+        {/* eslint-disable-next-line @next/next/no-img-element -- remote + local mix, shown at natural size */}
+        <img src={photo.src} alt={photo.alt} />
+        <figcaption>{photo.alt}</figcaption>
+      </figure>
+      <button type="button" className="gp-lightbox-close" onClick={onClose} aria-label="Close photo">
+        ✕
+      </button>
+    </dialog>
   );
 }

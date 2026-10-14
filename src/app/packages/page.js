@@ -2,7 +2,7 @@ import CompareTool from "@/components/CompareTool";
 import Accordion from "@/components/Accordion";
 import { COMPARE_FAQ } from "@/data/compareFaq";
 import CenteredCta from "@/components/CenteredCta";
-import { COMPANY } from "@/data/company";
+import { CALL_PHONES } from "@/data/company";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata("/packages/", {
@@ -61,7 +61,7 @@ export default function ComparePackagesPage() {
         body="Share your built-up area and quality expectations — we'll recommend the package that matches your budget, and explain what changes between tiers."
         chips={["Free consultation", "Package recommendation", "No obligation"]}
         primary={{ label: "Talk to us", href: "/contact/" }}
-        phone={COMPANY.phones[0]}
+        phones={CALL_PHONES}
       />
 
       <script

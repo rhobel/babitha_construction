@@ -22,7 +22,7 @@ export const TESTIMONIALS = [
     name: "SK Modasir Hossain",
     role: "Project Manager",
     rating: 5,
-    ref: "BC202509CPC",
+    ref: "BCPL202509CPC",
   },
   {
     quote:
@@ -31,7 +31,7 @@ export const TESTIMONIALS = [
     name: "Ramesh Kumar",
     role: "Homeowner, Bangalore",
     rating: 5,
-    ref: "BC202601CPC",
+    ref: "BCPL202601CPC",
   },
   {
     quote:
@@ -40,6 +40,6 @@ export const TESTIMONIALS = [
     name: "Anitha Prakash",
     role: "Homeowner, Bangalore",
     rating: 5,
-    ref: "BC202602CPC",
+    ref: "BCPL202602CPC",
   },
 ];

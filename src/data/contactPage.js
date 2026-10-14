@@ -1,4 +1,4 @@
-import { COMPANY } from "./company";
+import { CALL_PHONES, COMPANY } from "./company";
 import { PACKAGES } from "./packages";
 
 // ⚠ The WhatsApp links use COMPANY.phones[0]. Confirm that number is actually
@@ -12,7 +12,7 @@ export const CONTACT_HERO = {
   heading: "Contact us",
   body: "Talk to our Design + Build team about construction packages, architecture, cost-plus contracts, budgets, timelines and project feasibility.",
   directTitle: "Reach us directly",
-  phone: COMPANY.phones[0],
+  phones: CALL_PHONES,
 };
 
 export const CONTACT_CHANNELS = [
@@ -20,7 +20,7 @@ export const CONTACT_CHANNELS = [
     id: "call",
     icon: "phone",
     label: "Call us",
-    value: COMPANY.phones[0],
+    phones: CALL_PHONES,
     body: `Speak directly with a ${COMPANY.name} expert.`,
     action: { label: "Call now", href: `tel:${COMPANY.phones[0].replace(/\s/g, "")}` },
   },
